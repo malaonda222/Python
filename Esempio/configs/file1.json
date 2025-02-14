@@ -1,0 +1,9 @@
+{
+
+	0: "Qualcosa",
+	{
+		"Acceleration": "cuda"
+		#This is a comment
+	}
+
+}
