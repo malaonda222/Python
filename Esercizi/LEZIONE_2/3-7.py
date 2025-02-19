@@ -18,4 +18,6 @@ print(my_list)
 for nome in my_list:
     print(f"Caro {nome} ci vediamo venerdì a cena!")
 
+
+
     
