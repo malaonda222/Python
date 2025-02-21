@@ -6,4 +6,6 @@ for name in my_list:
     if name == "admin":
         print("Hello admin, would you like to see a status report?")
     else:
-        print(f"Hello {name}, thank you for logging in again")
+        print(f"Hello {name}, thank you for logging in again.")
+
+
