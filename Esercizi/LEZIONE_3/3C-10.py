@@ -1,5 +1,5 @@
-giorno = int(input("Inserisci un giorno del mese: "))
-mese = int(input("Inserisci un mese dell'anno: "))
+giorno:int = int(input("Inserisci un giorno del mese: "))
+mese:int = int(input("Inserisci un mese dell'anno: "))
 
 data = (giorno, mese)
 match data:
