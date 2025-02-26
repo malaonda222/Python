@@ -1,42 +1,71 @@
 # chiedere all'utente di inserire il nome di un animale
-animale = input("Digita il nome di un animale: ")
-habitat = input("Digita l'habitat in cui vive l'animale: ")
+animale = input("Digita il nome di un animale: ").lower()
+habitat = input("Digita l'habitat in cui vive l'animale: ").lower()
 
 # definire le categorie degli animali
-Mammiferi = ["cane", "gatto", "cavallo", "elefante", "leone", "balena", "delfino"]
-Rettili = ["serpente", "lucertola", "tartaruga", "coccodrillo"]
-Uccelli = ["aquila", "pappagallo", "gufo", "falco", "cigno", "anatra", "gallina", "tacchino"]
-Pesci = ["squalo", "trota", "salmone", "carpa"]
+Mammiferi:list = ["cane", "gatto", "cavallo", "elefante", "leone", "balena", "delfino"]
+Rettili:list = ["serpente", "lucertola", "tartaruga", "coccodrillo"]
+Uccelli:list = ["aquila", "pappagallo", "gufo", "falco", "cigno", "anatra", "gallina", "tacchino"]
+Pesci:list = ["squalo", "trota", "salmone", "carpa"]
 
 # definire categorie di habitat
-acqua = "acqua"
-aria = "aria"
-terra = "terra"
+habitats:list = ["acqua", "aria", "terra"]
 
 # match statement
 match animale:
     case animale if animale in Mammiferi:
-        print(f"Output: {animale} appartiene alla categia dei Mammiferi!")
-        animal_type = {"animale": animale, "categoria": "Mammiferi"}
+        animal_type = "mammiferi"
+        print(f"Output: {animale} appartiene alla categoria dei Mammiferi!")
     case animale if animale in Rettili:
-        print(f"Output: {animale} appartiene alla categia dei Rettili!")
-        animal_type = {"animale": animale, "categoria": "Rettili"}
+        animal_type = "rettili"
+        print(f"Output: {animale} appartiene alla categoria dei Rettili!")
     case animale if animale in Uccelli:
-        print(f"Output: {animale} appartiene alla categia dei Uccelli!")
-        animal_type = {"animale": animale, "categoria": "Uccelli"}
+        animal_type = "uccelli"
+        print(f"Output: \"{animale}\" appartiene alla categoria dei Uccelli!")
     case animale if animale in Pesci:
-        print(f"Output: {animale} appartiene alla categia dei Pesci!")
-        animal_type = {"animale": animale, "categoria": "Pesci"}
+        animal_type = "pesci"
+        print(f"Output: {animale} appartiene alla categoria dei Pesci!")
     case _:
         print("Il programma non è in grado di classificare l'animale inserito.")
-        animal_type = "Unknown"
+        animal_type = "unknown"
 
-dizionario = {"animale": name, "animal_type": animal_type, "habitat": habitat}
+#animal_type = ["mammiferi", "rettili", "uccelli", "pesci", "unknown"]
+diz = {
+    "nome": animale, 
+    "tipo animale": animal_type, 
+    "habitat": habitat
+}
 
-match (animal_type, habitat):
-    case  
-        print("L'animale può vivere nell'habitat specificato")
-    case 
-        print("Avviso: L'habitat non è compatibile con l'habitat specificato")
+match animal_type:
+    case animal_type if animal_type == "mammiferi":
+        match habitat:
+            case habitat if habitat == "terra":
+                print(f"L'animale {animale} è uno dei {animal_type} che vive sulla terra")
+            case habitat if habitat == "acqua": 
+                print(f"L'animale {animale} è uno dei {animal_type} che vive in acqua")
+            case _: 
+                print("L'habitat non è compatibile con l'habitat specificato")
+    case animal_type if animal_type == "rettili":
+         match habitat:
+            case habitat if habitat == "terra":
+                print(f"L'animale {animale} è uno dei {animal_type} che vive sulla terra")
+            case habitat if habitat == "acqua": 
+                print(f"L'animale {animale} è uno dei {animal_type} che vive in acqua")
+            case _:    
+                print("L'habitat non è compatibile con l'habitat specificato")
+    case animal_type if animal_type == "uccelli":
+         match habitat:
+            case habitat if habitat == "terra":
+                print(f"L'animale {animale} è uno dei {animal_type} che vive sulla terra")
+            case habitat if habitat == "aria": 
+                print(f"L'animale {animale} è uno dei {animal_type} che vive in aria")
+            case _:    
+                print("L'habitat non è compatibile con l'habitat specificato")
+    case animal_type if animal_type == "pesci":
+         match habitat:
+            case habitat if habitat == "acqua":
+                print(f"L'animale {animale} è uno dei {animal_type} che vive in acqua")
+            case _:    
+                print("L'habitat non è compatibile con l'habitat specificato")
     case _:
-        print("Errore. Animale o habitat non riconosciuti.")
+        print("Errore. L'animale o l'habitat non sono riconosciuti.")

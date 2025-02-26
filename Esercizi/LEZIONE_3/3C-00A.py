@@ -15,4 +15,3 @@ match neonati:
         print("Incredibile! Cinque!")
     case _:
         print(f"Complimenti! {neonati} bambini!")
-    
