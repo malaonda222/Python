@@ -8,3 +8,7 @@ for n in cubes:
     cubo = n ** 3
     print(cubo)
     print(f"Il cubo di {n} è", n ** 3)
+
+
+# ciclo while
+lista = []
