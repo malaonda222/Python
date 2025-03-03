@@ -1,27 +1,27 @@
 cities = {
     "Parigi":{
-        "Paese":"Francia",
-        "Popolazione":"3 milioni",
-        "Fact":"Conosciuta come la città dell'amore"
+        "paese":"Francia",
+        "popolazione":"3 milioni",
+        "fact":"Conosciuta come la città dell'amore"
     },
 
     "Rome":{
-        "Paese":"Italia",
-        "Popolazione":"4 milioni",
-        "Fact":"Tutte le strade portano a Roma"
+        "paese":"Italia",
+        "popolazione":"4 milioni",
+        "fact":"Tutte le strade portano a Roma"
     },
 
     "Amsterdam":{
-        "Paese":"Paesi Bassi",
-        "Popolazione":"1 milione",
-        "Fact":"La Venezia del Nord"
+        "paese":"Paesi Bassi",
+        "popolazione":"1 milione",
+        "fact":"La Venezia del Nord"
     }
 }
 print(cities)
 
 for city, info in cities.items():
     # print(f"La città di {city} ha le seguenti caratteristiche: {info}\n")
-    print(f"Citta: {city}")
-    print(f"Paese: {info['Paese']}")
-    print(f"Popolazione: {info['Popolazione']}")
-    print(f"Fact: {info['Fact']}\n")
+    print(f"citta: {city}")
+    print(f"paese: {info['paese']}")
+    print(f"popolazione: {info['popolazione']}")
+    print(f"fact: {info['fact']}\n")
