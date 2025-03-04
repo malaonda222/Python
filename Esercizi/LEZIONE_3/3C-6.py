@@ -70,31 +70,56 @@ match animal_type:
     case _:
         print("Errore. L'animale o l'habitat non sono riconosciuti.")
 
-    
-match diz:
-    case {"animale": animale, "animal_type": "mammiferi", "habitat": habitat} if habitat in ["terra", "acqua"]:
-        match animale:
-                case animale if animale in ["cane", "gatto", "cavallo", "elefante", "leone"] and habitat == "terra":
-                    print(f"L'animale {animale} è uno dei mammiferi che può vivere sulla terra!")
-                case animale if animale in ["balena", "delfino"] and habitat == "acqua":
-                    print(f"L'animale {animale} è uno dei mammiferi che può vivere in acqua!")
-                case _:
-                    print(f"Non ho mai visto l'animale {animale} vivere nell'habitat {habitat}")
-    case {"animale": animale, "animal_type": "uccelli", "habitat": habitat} if habitat in ["terra", "acqua", "aria"]:
-        match animale:
-                case animale if animale in ["gallina", "tacchino"] and habitat == "terra":
-                    print(f"L'animale {animale} è uo degli uccelli che può vivere sulla terra")
-                case animale if animale in ["cigno", "anatra"] and habitat ["acqua", "terra"]:
-                    print(f"L'animale {animale} è uno degli uccelli che può vivere in aria")  
-                case _:
-                    print()                       
+# opzione 2
+mydict:dict[str, str] = {"animale": animale, "tipo": animal_type, "habitat":habitat}
 
-    case {"animale": animale, "animal_type": "uccelli", "habitat": habitat} if habitat in ["terra", "acqua", "aria"]:
+match mydict:
+    # mammiferi
+    case {"animale": animale, "tipo": "mammiferi", "habitat": habitat} if habitat in ["terra", "acqua"]:
+        match animale:
+            # habitat terra
+            case animale if animale in ["cane", "gatto", "cavallo", "elefante", "leone"] and habitat == "terra":
+                print(f"L'animale {animale} è uno dei mammiferi che può vivere sulla terra!")
+            # habitat acqua
+            case animale if animale in ["balena", "delfino"] and habitat == "acqua":
+                print(f"L'animale {animale} è uno dei mammiferi che può vivere in acqua!")
+            # default case
+            case _:
+                print(f"Non ho mai visto l'animale {animale} vivere nell'habitat {habitat}")
+    # rettili
+    case {"animale": animal, "tipo": "rettili", "habitat": habitat} if habitat in ["terra", "acqua"]:
+        match animal:
+            # habitat terra
+            case animal if animal in ["serpente", "lucertola"] and habitat == "terra":
+                print(f"L'animale {animal} è uno dei rettili che può vivere solo sulla terra!")
+            # habitat terra e acqua
+            case animal if animal in ["tartaruga", "coccodrillo"] and habitat in ["terra", "acqua"]:
+                print(f"L'animale {animal} è uno dei rettili che può vivere sia sulla terra che in acqua!")
+            # default case
+            case _:
+                print(f"Non ho mai visto l'animale {animal} vivere nell'habitat {habitat}.")
+    # uccelli
+    case {"animale": animale, "tipo": "uccelli", "habitat": habitat} if habitat in ["terra", "acqua", "aria"]:
+        match animale:
+            # habitat terra
+            case animale if animale in ["gallina", "tacchino"] and habitat == "terra":
+                print(f"L'animale {animale} è uno degli uccelli che può vivere sulla terra")
+            # habitat acqua e terra
+            case animale if animale in ["cigno", "anatra"] and habitat ["acqua", "terra"]:
+                print(f"L'animale {animale} è uno degli uccelli che può vivere in acqua e sulla terra")  
+            # habitat aria
+            case animal if animal in ["aquila", "pappagallo", "gufo", "falco"] and habitat == "aria":
+                print(f"L'animale {animale} è uno degli uccelli che può vivere in aria!")
+            # default case
+            case _:
+                print()                       
+
+    case {"animale": animale, "tipo": "pesci", "habitat": habitat} if habitat in ["terra", "acqua", "aria"]:
         match habitat:
             case "acqua":
                 print(f"L'animale {animale} è uno dei pesci che vive in acqua!")
             case _:
-                print(f"Non ho mai visto nessun pesce vivere fuori dall'acqua!")
+                print(f"Non ho mai visto l'animale {animale} vivere nell'habitat {habitat}!")
 
     case _:
-        print(f"Non sono in grado di fornire alcuna informazione per l'animale inserito!")
+        print(f"Non sono in grado di fornire alcuna informazione sull'habitat {habitat}!")

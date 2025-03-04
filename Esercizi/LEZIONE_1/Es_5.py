@@ -1,20 +1,18 @@
 n:int = int(input("Inserisci un numero: "))
-primo = True
+is_prime = True
 
-while True:
-    if n<2:
-        primo = False
-    else:
-        div=2
-        if div<n:
-            if n%div==0:
-                prime = True
-            else:
-                div+=1
+if n<2:
+    is_prime = False
+else:
+    div=2
+    while div <= n**0.5:
+        if n%div==0:
+            is_prime = False 
         else:
-            prime = False 
-        
-            if primo == True:
-                print("Il numero è primo")
-            else:
-                print("Il numero non è primo")
+            div+=1
+    is_prime = False
+
+if is_prime == True:
+    print("Il numero è primo")
+else:
+    print("Il numero non è primo")
