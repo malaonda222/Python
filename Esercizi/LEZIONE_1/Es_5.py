@@ -1,3 +1,4 @@
+#Verifica se un numero è primo
 n:int = int(input("Inserisci un numero: "))
 is_prime = True
 
