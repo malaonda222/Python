@@ -11,5 +11,6 @@ while True:
     else:
         artist = input("Insert the artist: ")
         nome_album = input("Insert the album name: ")
-    album = make_album(artist, nome_album)
-    print(album)
+
+    album_1 = make_album(artist, nome_album)
+    print(album_1)
