@@ -20,6 +20,8 @@ while True:
         print(f"I posti liberi rimasti per il corso di {nome_corso} sono: {max_posti}.")
         print(f"I posti occupati per il corso di {nome_corso} sono: {100-max_posti}.")
     elif opzione == "elimina":
+        max_posti = 100
+        nome_corso = input("Inserisci il nome del corso: ")
         break
     elif opzione == "esci":
         print("Il programma termina.")
