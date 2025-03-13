@@ -1,4 +1,4 @@
-# Somma condizionata di numeri in base a un valore x
+'''Somma condizionata di numeri in base a un valore x'''
 x = int(input("Inserisci un valore positivo x: "))
 if x > 0:
     i = 0

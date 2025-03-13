@@ -1,4 +1,4 @@
-# Determinare la somma dei numeri dentro un intervallo
+'''Determinare la somma dei numeri dentro un intervallo'''
 a = int(input("Inserisci un valore per \"a\": "))
 b = int(input("Inserisci un valore per \"b\": "))
 

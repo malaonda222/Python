@@ -1,4 +1,4 @@
-# Sistema di registrazione degli studenti ai corsi
+'''Sistema di registrazione degli studenti ai corsi'''
 nome_corso = input("Inserisci il nome del corso: ")
 max_posti = 100
 

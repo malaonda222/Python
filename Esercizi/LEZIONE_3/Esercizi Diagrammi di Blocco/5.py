@@ -1,4 +1,4 @@
-# Calcolo della somma dei quadrati fino a un numero intero positivo n
+'''Calcolo della somma dei quadrati fino a un numero intero positivo n'''
 n = int(input("Inserisci un numero n: "))
 
 if n%1 == 0 and n>0:

@@ -1,4 +1,4 @@
-# Algoritmo per il calcolo della media dei voti con inserimento iterativo
+'''Algoritmo per il calcolo della media dei voti con inserimento iterativo'''
 cont = 0
 sum = 0
 

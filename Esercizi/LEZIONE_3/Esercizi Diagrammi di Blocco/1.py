@@ -1,4 +1,4 @@
-# Sistema di gestione per un parcheggio 
+''''Sistema di gestione per un parcheggio''' 
 
 max_posti = int(input("Inserisci il numero massimo di posti: "))
 liberi = max_posti

@@ -1,4 +1,4 @@
-# Automazione di un semaforo intelligente
+'''Automazione di un semaforo intelligente'''
 
 nord_sud = int(input("Inserisci il numero di veicoli per la direzione nord-sud: "))
 est_ovest = int(input("Inserisci il numero di veicoli per la direzione est-ovest: "))
