@@ -17,9 +17,6 @@
 # print(your_car)
 
 
-
-
-
 def automobile(produttore:str, modello: str, **kwargs):
     macchina = {
         "manufacturer": produttore,
