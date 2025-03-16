@@ -4,12 +4,12 @@ class Persona:
         self.cognome = cognome
     
     def saluta(self):
-        print("Ciao sono " + self.nome)
+        print(f"Ciao sono {self.nome} {self.cognome}")
 
 person1 = Persona("Luca", "Rossi")
 person2 = Persona("Marco", "Verdi")
 
-print(person1.nome)
+print(person1.cognome)
 print(person2.nome)
 
 person1.saluta()

@@ -24,3 +24,14 @@ sandwich('Uova', 'Cipolla', 'Formaggio')
 sandwich('Manzo', 'Maionese')
 sandwich('Pollo', 'Senape', 'Cetriolini')
 
+
+def sandwich(*args:list):
+    riepilogo = []
+    for item in args:
+        riepilogo.append(item)
+    print(f"Il panino è composto da: {', '.join(riepilogo)}")
+
+sandwich("cipolla", "salame", "ketchup")
+sandwich("maiale", "formaggio", "pomodori")
+sandwich("salsiccia", "stracchino")
+
