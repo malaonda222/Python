@@ -30,11 +30,11 @@ veicolo3 = Bicicletta(tipo="da città")
 
 for veicolo in [veicolo1, veicolo2, veicolo3]:
     match veicolo:
-        case Auto(marca, modello):
-            print(f"Veicolo: Auto | Marca: {marca}, Modello: {modello}, Ruote: {veicolo.ruote}, Motore: {veicolo.a_motore}")
-        case Moto(marca, modello):
-            print(f"Veicolo: Moto | Marca: {marca}, Modello: {modello}, Ruote: {veicolo.ruote}, Motore: {veicolo.a_motore}")
-        case Bicicletta(tipo):
-            print(f"Veicolo: Bicicletta | Tipo: {tipo}, Ruote: {veicolo.ruote}, Motore: {veicolo.a_motore}")
+        case Auto() as auto:
+            print(f"Veicolo: Auto | Marca: {auto.marca}, Modello: {auto.modello}, Ruote: {auto.ruote}, Motore: {auto.a_motore}")
+        case Moto() as moto:
+            print(f"Veicolo: Moto | Marca: {moto.marca}, Modello: {moto.modello}, Ruote: {moto.ruote}, Motore: {moto.a_motore}")
+        case Bicicletta() as bicicletta:
+            print(f"Veicolo: Bicicletta | Tipo: {bicicletta.tipo}, Ruote: {bicicletta.ruote}, Motore: {bicicletta.a_motore}")
         case _:
             print("Tipo di veicolo sconosciuto.")
