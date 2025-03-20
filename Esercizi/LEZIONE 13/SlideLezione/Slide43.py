@@ -10,3 +10,9 @@ def SumInRange (a:int, b:int) -> None:
         return int(somma)
 
 print(SumInRange(5, 10))
+
+
+
+
+
+

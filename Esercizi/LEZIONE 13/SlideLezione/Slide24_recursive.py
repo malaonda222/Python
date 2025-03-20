@@ -9,3 +9,13 @@ def RecursiveSum(n:int) -> int:
 
     
 print(RecursiveSum(5)) 
+
+
+
+def RecursiveSum(n:int) -> None:
+    if n < 0:
+        return None
+    elif n == 0:
+        return 0
+    else:
+        return int(n + RecursiveSum(n-1))
