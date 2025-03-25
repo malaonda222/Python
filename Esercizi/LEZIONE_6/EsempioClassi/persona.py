@@ -20,3 +20,4 @@ class Persona:
         self.lastname = lastname #attributo della classe Persona name si inizializza con il valore di una stringa generica "name", "lastname", "age"
         self.age = age
     
+

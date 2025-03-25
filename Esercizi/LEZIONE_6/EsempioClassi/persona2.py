@@ -35,4 +35,4 @@ class Persona:
     # funzione che mi consente di ritornare il valore di self.age
     def getAge(self) -> int:
         return self.age 
-    
+
