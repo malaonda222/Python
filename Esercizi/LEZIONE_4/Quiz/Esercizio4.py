@@ -1,3 +1,4 @@
+'''Esercizio 4'''
 def countdown(n:int) -> int:
     if n < 0:
         print("Errore.")
@@ -7,7 +8,4 @@ def countdown(n:int) -> int:
         print(n)
         countdown(n-1)
 
-    
-countdown(-5)
-countdown(0)
 countdown(5)

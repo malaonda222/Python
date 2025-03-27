@@ -21,3 +21,5 @@ class Persona:
         self.age = age
     
 
+    def __str__(self) -> str: #stringa speciale: ci consente di stampare in output le informazioni relative all'oggetto sotto forma di stringa
+        return f"Nome: {self.name}\nCognome: {self.lastname}\nEtà: {self.age}."

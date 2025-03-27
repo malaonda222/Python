@@ -4,11 +4,11 @@ Per ogni parola inserita, il programma deve verificare se il primo e l'ultimo ca
 visualizzare un messaggio corrispondente.'''
 
 while True:
-    parola = input("Inserire una parola: ")
+    parola:str = input("Inserire una parola per verificare se è palindroma: ")
     if parola == "fine":
-        print("Fine del programma.")
-        break 
+        break
+
+    if parola == parola[::-1]:
+        print("La parola è palindroma.")
     else:
-        if parola[0] == parola[-1]:
-            print("Il primo e l'ultimo carattere sono uguali.")
-        
+        print("La parola non è palindroma.")

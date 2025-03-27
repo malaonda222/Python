@@ -31,3 +31,5 @@ else:
 print(f'bilanciate("{parentesi}") -> {risultato}')
 
 
+
+
