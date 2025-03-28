@@ -15,8 +15,8 @@ Media dei numeri dispari: 5.67
 Numero più frequente: 7 (2 volte)'''
 
 somma_pari = 0
-somma_dispari = 0
-media_dispari = 0
+somma_dispari = []
+media_dispari = []
 i = 0
 lista_numeri = []
 
@@ -33,37 +33,37 @@ while True:
         lista_numeri.append(numero_int)
         print(lista_numeri)
 
-        if numero_int % 2 == 0: # condizione per stabilire se il numero intero è pari
-            somma_pari += numero_int 
-        else: # condizione per il caso in cui il numero intero sia dispari
-            somma_dispari += numero_int
-            i = i + 1
-            media_dispari = somma_dispari/i 
 
-# stabilire il numero più frequente nella lista e la sua frequenza nella lista
-num_frequenti = []
-max_frequenze = 0
-for x in lista_numeri:
-    frequenza_x = lista_numeri.count(x)
-    if max_frequenze < frequenza_x:
-        num_frequenti = []
-        max_frequenze = frequenza_x
-        num_frequenti.append(x)
-    elif max_frequenze == frequenza_x:
-        if x not in num_frequenti:
-            num_frequenti.append(x)
+for numero in lista_numeri:
+    if numero_int % 2 == 0: # condizione per stabilire se il numero intero è pari
+        somma_pari += numero_int 
+    else: # condizione per il caso in cui il numero intero sia dispari
+        somma_dispari.append(numero_int)
+
+if len(somma_dispari) > 0:
+    media_dispari = sum(somma_dispari) / len(somma_dispari)
+else:
+    media_dispari = 0
+
+# calcola le frequenze dei numeri
+frequenze = {}
+for numero in lista_numeri:
+    if numero not in frequenze:
+        frequenze[numero] = 1
+    else:
+        frequenze[numero] += 1
+
+max_frequente = max(frequenze.values()) #trova il numero più frequente
+numeri_frequenti = [] #lista dei numeri più frequenti
+
+for num, freq in frequenze.items():
+    if freq == max_frequente:
+        numeri_frequenti.append(numero)
 
 # stampare i risultati ottenuti
 print(f"La somma dei numeri pari è: {somma_pari}")
 print(f"La media dei numeri dispari è: {media_dispari}")
-print(f"Numero/i più frequente/i: {num_frequenti} ({max_frequenze} volta/e)")
+print(f"Numero/i più frequente/i: {numeri_frequenti} ({max_frequente} volta/e)")
 
-dizionario_frequenze = {}
-while True:
-    numero_inserito = int(input("Inserisci il numero: "))
-    if numero_inserito in dizionario_frequenze:
-        dizionario_frequenze[numero_inserito] += 1 #il numero si trova all'interno del dizionario
-    else:
-        dizionario_frequenze[numero_inserito] = 1 #il numero non si trova all'interno del dizionario
 
         

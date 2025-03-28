@@ -38,3 +38,16 @@ print(f"Lista a: {lista_a}.")
 print(f"Lista b: {lista_b}.")
 print(f"La somma incrociata degli elementi delle due liste è: {lista_c}.")
 
+
+# opzione due 
+
+a:list[int] = [10, 20, 30] # lista a
+b:list[int] = [40, 50, 60] # lista b
+c:list[int] = [] # lista c
+
+n:int = len(a) # lunghezza della lista a
+
+for i in range(n):
+    c.append(a[i] + b[(n-1)-i])
+    
+print(f"La somma incrociata delle due liste è: {c}.")

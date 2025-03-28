@@ -13,7 +13,6 @@ Se l'utente inserisce i numeri 5, 8, 3, 12, 7, il programma deve stampare:
 ************
 *******'''
 
-i = 1
 count_n = 1
 lista_numeri = []
 
@@ -21,13 +20,16 @@ for i in range(5):
         numero = input(f"Inserisci il {count_n}° numero: ")
         if numero.lstrip('-').isdigit():
             numero = int(numero)
-            if 1 <= numero <= 30:
+            if 1 < numero < 30:
                 lista_numeri.append(numero)
-                count_n += 1
-       
+
         else:
             print("Errore. Inserisci un numero compreso tra 1 e 30.")
 
-        
+# Stampa il grafico a barre
+print("Grafico a barre:")
+
+for numero in lista_numeri:
+    print("*" * numero)
 
 
