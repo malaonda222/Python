@@ -26,3 +26,14 @@ def vowelsCounter(stringa_1:str) -> int:
             return 1 + vowelsCounter(stringa_1[1:])
         else:
             return vowelsCounter(stringa_1[1:])
+
+
+
+def vowelsCounter(s:str) -> int:
+    if not s: #se la stringa è vuota, non è una stringa piena
+        return 0
+    if s[0].lower() in ["a", "b", "c", "d", "e"]:
+        return 1 + vowelsCounter(s[1:])
+    else:
+        return 0 + vowelsCounter(s[1:])
+    
