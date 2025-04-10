@@ -33,3 +33,5 @@ def prime_factors(n:int) -> list[int]:
     return fattori
 
 print(prime_factors(60))
+
+

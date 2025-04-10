@@ -17,3 +17,8 @@ def somma_elementi(x:list[int], y:list[int]) -> list[int]:
     for i in range(len(x)):
         result.append(x[i] + y[i])  # Somma i valori corrispondenti e li aggiunge alla lista risultato
     return result
+
+
+
+
+
