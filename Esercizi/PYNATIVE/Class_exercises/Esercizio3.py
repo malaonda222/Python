@@ -1,13 +1,13 @@
 # creare una classe figlia Bus che erediterà tutte le variabili e i metodi della classe Vehicle
 
 class Vehicle:
-    def __init__(self, name, max_speed, mileage):
+    def __init__(self, name:str, max_speed:float, mileage:float):
         self.name = name
         self.max_speed = max_speed
         self.mileage = mileage
 
 class Bus(Vehicle):
-    pass 
+    pass
 
-scuola_bus = Bus("School Volvo", 180, 12)
-print("Name:", scuola_bus.name, "Speed:", scuola_bus.max_speed, "Mileage:", scuola_bus.mileage)
+scuolabus = Bus("Volvo", 80, 8000)
+print(f"Le informazioni riguardo allo scuolabus sono le seguenti: nome: {scuolabus.name}, velocità: {scuolabus.max_speed}, kilometraggio: {scuolabus.mileage}.")
