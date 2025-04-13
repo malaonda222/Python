@@ -29,7 +29,7 @@ class Biblioteca:
     def set_libro(self, libro:Libro):
         self.libri.append(libro)
     
-    def get_libri_titolo(self): #per avere tutti i titolo all'interno della biblioteca
+    def get_libri_titolo(self): #per avere tutti i titoli all'interno della biblioteca
         for item in self.libri:
             print(item.get_titolo())
 

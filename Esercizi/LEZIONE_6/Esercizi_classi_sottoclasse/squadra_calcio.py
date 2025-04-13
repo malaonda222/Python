@@ -52,11 +52,12 @@ class Squadra:
     def getSquadra(self) -> str:
         return self.nome_squadra
     
-    def mostra_squadra(self):
+    def mostra_squadra(self) -> str:
         for item in self.giocatori:
             print(item.getName())
+        
     
-    def conta_giocatori(self):
+    def conta_giocatori(self) -> str:
         return len(self.giocatori)
     
 
@@ -66,9 +67,17 @@ calciatore1.setLastname("Rossi")
 calciatore1.setRuolo("Attaccante")
 print(calciatore1)
 
-lion = Squadra()
-lion.setSquadra("Lion")
-# lion.aggiungi_giocatore("Rino", "Gaetano", 41)
-lion.aggiungi_giocatore(calciatore1)
-lion.mostra_squadra()
-lion.conta_giocatori()
+calciatore2 = Giocatore()
+calciatore2.setName("Rino")
+calciatore2.setLastname("Gaetano")
+calciatore2.setRuolo("Difensore")
+print(calciatore2)
+
+squadra = Squadra()
+squadra.setSquadra("Lion")
+squadra.aggiungi_giocatore(calciatore1)
+squadra.aggiungi_giocatore(calciatore2)
+
+print(f"Squadra: {squadra.getSquadra()}")
+squadra.mostra_squadra()
+print("Totale giocatori:", squadra.conta_giocatori())
