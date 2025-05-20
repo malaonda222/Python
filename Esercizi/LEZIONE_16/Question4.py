@@ -1,9 +1,12 @@
 class Specie:
-    def __init__(self, nome: str, popolazione: int, tasso_crescita: float):
-        self.nome = nome
-        self.popolazione_attuale = popolazione 
-        self.tasso_crescita = tasso_crescita
-    
+    def __init__(self, nome: str, popolazione_attuale: int, tasso_crescita: float):
+        self._nome(nome)
+        self._popolazione_attuale(popolazione_attuale) 
+        self._tasso_crescita(tasso_crescita)
+
+    def setNome(self, nome: str) -> None:
+        self._nome = nome
+
     def cresci(self):
         self.popolazione_attuale *= (1 + self.tasso_crescita/100)
         self.popolazione_attuale = int(self.popolazione_attuale)
