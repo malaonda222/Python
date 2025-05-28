@@ -1,4 +1,6 @@
+from __future__ import annotations 
 from abc import ABC, abstractmethod 
+
 
 class Persona(ABC):
     
@@ -17,7 +19,7 @@ class Persona(ABC):
 class Student(Persona):
 
     def __init__(self, nome: str, età: int, studente_id: int):
-        super.__init__(nome, età)
+        super().__init__(nome, età)
         self.studente_id = studente_id
         self.corsi = []
 
@@ -35,6 +37,62 @@ class Student(Persona):
     def __str__(self):
         return super().__str__() + f" | ID: {self.studente_id}"
         # return f"Studente: {self.nome}\nID: {self.studente_id}\nCorsi: {", ".join(self.corsi) if self.corsi else "Nessun corso"}"
+
+
+class Professore(Persona):
+    def __init__(self, nome:str, età: int, professore_id: int, dipartimento: Dipartimento):
+        super().__init__(nome, età)
+        self.professore_id = professore_id
+        self.corsi = []
+        self.dipartimento = dipartimento 
+
+        dipartimento.add_professore(self)
+
+    def get_role(self):
+        print("Professore")
+    
+    def assign_to_course(self, professore_id: str, corso: str):
+        if corso not in self.corsi:
+            self.corsi.append(corso)
+            corso.append(professore_id)
+    
+    def set_department(self, professore_id: str, dipartimento: Dipartimento):
+        if not dipartimento:
+            raise ValueError(f"Il dipartimento {dipartimento} non esiste.")
+        else:
+            self.dipartimento.append(professore_id)
+            return "Il professore è stato aggiunto al dipartimento."
+
+    def __str__(self):
+        return super().__str__ + f" ID Professore: {self.professore_id}\nDipartimento: {self.dipartimento.nome_dipartimento}"
+
+
+class Corso:
+    def __init__(self, nome_corso: str, codice_corso: int, professore: Professore):
+        self.nome_corso = nome_corso
+        self.codice_corso = codice_corso
+        self.studenti = []
+        self.professore = professore
+
+    def add_student(self, studente: str, corso: str):
+        if studente not in corso:
+            self.studenti.append(studente)
+            print(f"Studente {studente.studente_id} aggiunto al corso.")   
+        else: 
+            print("Lo studente risulta già iscritto al corso.")
+
+    def set_professor(self, professore: str):
+        self.professore = professore
+
+    def __str__(self):
+        prof_str = self.professore.nome if self.professore else "Nessun professore assegnato."
+        studenti_nomi = ", ".join(s.nome for s in self.studenti) or "Nessuno studente"
+        return (
+            f"Corso: {self.nome_corso} (Codice: {self.codice_corso})\n"
+            f"Professore: {prof_str}\n"
+            f"Studenti iscritti: {studenti_nomi}\n"
+        )
+
 
 class Dipartimento:
     def __init__(self, nome_dipartimento: str):
@@ -65,55 +123,8 @@ class Dipartimento:
             f"Professori: {prof_nomi}"
         )
 
-class Professore(Persona):
-    def __init__(self, nome:str, età: int, professore_id: int, dipartimento: Dipartimento):
-        super().__init__(nome, età)
-        self.professore_id = professore_id
-        self.corsi = []
-        self.dipartimento = dipartimento 
 
-        dipartimento.add_professore(self)
-
-    def get_role(self):
-        print("Professore")
-    
-    def assign_to_course(self, professore: str, corso: str):
-        if corso not in self.corsi:
-            self.corsi.append(corso)
-            corso.set_professor(self)
-    
-    def __str__(self):
-        return super().__str__ + f" ID Professore: {self.professore_id}\nDipartimento: {self.dipartimento.nome_dipartimento}"
-    
-
-class Corso:
-    def __init__(self, nome_corso: str, codice_corso: int, professore: Professore):
-        self.nome_corso = nome_corso
-        self.codice_corso = codice_corso
-        self.studenti = []
-        self.professore = professore
-
-    def add_student(self, studente: str, corso: str):
-        if studente not in corso:
-            self.studenti.append(studente)
-            print(f"Studente {studente.studente_id} aggiunto al corso.")   
-        else: 
-            print("Lo studente risulta già iscritto al corso.")
-
-    def set_professor(self, professore: str):
-        self.professore = professore
-
-    def __str__(self):
-        prof_str = self.professore.nome if self.professore else "Nessun professore assegnato."
-        studenti_nomi = ", ".join(s.nome for s in self.studenti) or "Nessuno studente"
-        return (
-            f"Corso: {self.nome_corso} (Codice: {self.codice_corso})\n"
-            f"Professore: {prof_str}\n"
-            f"Studenti iscritti: {studenti_nomi}\n"
-        )
-    
-
-class Università:
+class Università: #creo la classe università e inizializzo
     def __init__(self, nome: str):
         self.nome = nome 
         self.dipartimenti = []
