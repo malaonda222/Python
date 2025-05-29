@@ -22,15 +22,17 @@ def test_check_weather5():
     assert check_weather(11.00) == 'cold', 'temperatures lower than 10 degrees must be considered as cold temperatures' 
 '''
 
+
 @pytest.mark.parametrize("temperature, expected", [
     (21.00, "hot"),
     (13.00, "average"),
     (0.00, "cold"),
     (15.00, "cold")
 ])
+
 def test_check_weather(temperature, expected):
     ae: str = ""
-    if temperature < 20:
+    if temperature > 20:
         ae = 'temperatures greater than 20 degrees must be considered as hot'
     elif 10 < temperature <= 20:
         ae = 'temperatures within 10 and 20 degrees must be considered as average temperature'

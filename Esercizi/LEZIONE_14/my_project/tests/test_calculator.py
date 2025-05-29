@@ -19,9 +19,6 @@ def test_division():
     assert calculation.division() == 2.00, 'The quotient is wrong'
 '''
 
-from my_project.calculator import Calculator 
-import pytest 
-
 
 @pytest.fixture
 def calculation():
