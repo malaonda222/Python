@@ -24,3 +24,17 @@ print(input_utente)
 
 input2_utente = ricerca_binaria([8, 9, 55, 69, 400, 6785, 8995, -3], 7)
 print(input2_utente)
+
+
+#bin search con funzione ricorsiva 
+def bin_search(lista: list[int], numero: int) -> bool:
+    mid: int = len(lista) // 2
+    if lista[mid] == numero:
+        print("Il numero è stato trovato!")
+    elif len(lista) == 1:
+        print("Numero non trovato.")
+    elif lista[mid] < numero:
+        bin_search(lista[mid + 1:], numero)
+    elif lista[mid] > numero:
+        bin_search(lista[:mid], numero)
+    

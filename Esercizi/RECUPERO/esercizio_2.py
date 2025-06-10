@@ -26,7 +26,7 @@ class Customer:
     def __init__(self, customer_id: str, name: str) -> None:
         self.customer_id = customer_id
         self.name = name 
-        self.rented_movies: list[Movie] = []
+        self.rented_movies = []
 
     def __str__(self) -> str:
         return f"Id customer: {self.customer_id}\nNome: {self.name}\nRented Movies:{self.rented_movies}\n"
@@ -48,10 +48,9 @@ class Customer:
             raise ValueError(f"Il film {movie.title} non è stato noleggiato da questo cliente.")
 
 class VideoRentalStore:
-    def __init__(self, customers: dict[str, Customer] = None, movies: dict[str, Movie] = None) -> None:
-        self.customers: dict[str, Customer] = customers if customers is not None else {}
-        self.movies: dict[str, Movie] = movies if movies is not None else {}
-       
+    def __init__(self) -> None:
+        self.movies: dict[str, Movie] = dict()
+        self.customers: dict[str, Customer] = {}
     
     def add_movie(self, movie_id: str, title: str, director: str) -> dict:
         '''Aggiunge un nuovo film nel videonoleggio se non è già presente'''
