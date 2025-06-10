@@ -6,7 +6,7 @@ def is_valid_ip4(address: str) -> bool:
         if not token.isdigit():
             return False
         num = int(token)
-        if num < 0 and num > 256:
+        if num < 0 and num > 255:
             return False
     return True 
      
