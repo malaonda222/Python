@@ -11,9 +11,6 @@ def sum_secondary_diagonal(matrix: list[list[int]]) -> int:
     return somma_diagonali_dx_sx
 
 
-
-
-
 def sum_primary_diagonal(matrix: list[list[int]]) -> int:
     for i in range(len(matrix)):
         for j in range(len(matrix)):
@@ -27,6 +24,13 @@ def sum_secondary_diagonal(matrix: list[list[int]]) -> int:
                 somma += matrix[i][-1 -j]
 
 
+def diag(m: list[list[int]]) -> int:
+    somma: int = 0
+    somma2: int = 0
+    for i in range(len(m)):
+        somma += m[i][i]
+        somma2 += m[i][len(m) -1 -i]
+    return somma or somma2 
 
 mat1 = [
 [1, 2, 3],
@@ -47,3 +51,9 @@ print(sum_secondary_diagonal(mat1))
 
 print(sum_primary_diagonal(mat2))
 print(sum_secondary_diagonal(mat2))
+
+
+
+
+
+

@@ -24,6 +24,17 @@ print(indirizzo4)
 print(indirizzo5)
 
 
+def check(ip: str) -> bool:
+    blocchi: list[str] = ip.split(".")
+    if len(blocchi) != 4:
+        return False 
+    for blocco in blocchi:
+        if not blocco.isdigit():
+            return False 
+        if not(0 <= int(blocco) <= 255):
+            return False
+    return True 
+
 
 
 
