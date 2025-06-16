@@ -56,10 +56,9 @@ def mcd(x: int, y: int):
     if x < y:
         x, y = y, x 
     while y != 0:
-        x, y = y, x% y 
+        x, y = y, x % y 
     return x 
     
-
 def semplifica(l: list[Frazione]) -> list:
     lista_semplificata = []
     for frazione in l:

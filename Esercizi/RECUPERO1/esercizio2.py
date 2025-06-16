@@ -1,22 +1,26 @@
+def validazione_numero(num: float):
+    if num.is_integer() and num > 0:
+        return True
+    else:
+        return False 
+
 while True:
     x = float(input("Inserisci un numero intero positivo: "))
-    if x.is_integer() and x > 0:
-        print(f"Il numero scelto è: {int(x)}")
+    if validazione_numero(x) == True:
         break
-    else:
-        print("Errore. Il numero deve essere un intero positivo") 
+print(f"Il numero scelto è: {int(x)}")
 
 sequenza_numeri = []
 while True:
     numero = float(input("Inserisci un numero: "))
     if numero == 0:
-        break
-    if numero.is_integer() and numero > 0:
+        break 
+    if validazione_numero(numero) == True:
         sequenza_numeri.append(int(numero))
-        continue
     else:
-        print("Errore. Il numero deve essere intero e positivo")
+        continue
 print(f"Sequenza di numeri: {sequenza_numeri}")
+
 
 occorrenze = 0
 for element in sequenza_numeri:
