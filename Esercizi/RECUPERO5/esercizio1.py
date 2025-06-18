@@ -56,7 +56,7 @@ def caricoNullo(matrix: list[list[int]]) -> list[tuple]:
 
 
 '''1.E.'''
-def caricoMax(matrix: list[list[int]]) -> tuple:
+def caricoMax(matrix: list[list[int]]):
     righe = len(matrix)
     colonne = len(matrix[0])
     max_carico = None
@@ -68,12 +68,12 @@ def caricoMax(matrix: list[list[int]]) -> tuple:
             if max_carico is None or calcolo > max_carico:
                 max_carico = calcolo 
                 max_posizione = (r, c)
-    print(f"Carico massimo: {max_carico}")
-    return max_posizione
+    
+    return max_posizione, max_carico
 
 
 '''1.F.'''
-def caricoMin(matrix: list[list[int]]) -> tuple:
+def caricoMin(matrix: list[list[int]]):
     righe = len(matrix)
     colonne = len(matrix[0])
     min_carico = None 
@@ -85,16 +85,31 @@ def caricoMin(matrix: list[list[int]]) -> tuple:
             if min_carico is None or calcolo < min_carico:
                 min_carico = calcolo 
                 min_posizione = (r, c)
-    print(f"Carico minimo: {min_carico}")
-    return min_posizione
-
-
-
+    return min_posizione, min_carico
 
 
 if __name__ == '__main__':
 
-    # matrice = genera(3)
+    matrice2 = genera(5)
+    print("Matrice (lista):")
+    for riga in matrice2:
+        print(riga)
+    print("\nMatrice (grafico):")
+    printMAT(matrice2)
+
+    print("\nPosizioni a carico nullo:")
+    print(caricoNullo(matrice2))
+
+    (rmax, cmax), max_carico = caricoMax(matrice2)
+    print(f"CaricoMax: ({rmax}, {cmax}) con valore: {max_carico}")
+    print(f"Valore calcolaCarico: {calcolaCarico(matrice2, rmax, cmax)}")
+
+    (rmin, cmin), min_carico = caricoMin(matrice2)
+    print(f"CaricoMin: ({rmin}, {cmin}) con valore {min_carico}")
+    print(f"Valore calcolaCarico: {calcolaCarico(matrice2, rmin, cmin)}")
+
+
+     # matrice = genera(3)
     # for riga in matrice:
     #     print(riga)
     
@@ -108,20 +123,3 @@ if __name__ == '__main__':
     # print(caricoNullo(matrice1))
     # print(caricoMax(matrice1))
     # print(caricoMin(matrice1))
-
-    matrice2 = genera(5)
-    print("Matrice (lista):")
-    for riga in matrice2:
-        print(riga)
-    print("\nMatrice (grafico):")
-    printMAT(matrice2)
-    print("\nPosizioni a carico nullo:")
-    print(caricoNullo(matrice2))
-
-    rmax, cmax = caricoMax(matrice2)
-    print(f"CaricoMax: ({rmax}, {cmax})")
-    print(f"Valore calcolaCarico:({rmax}, {cmax}):", calcolaCarico(matrice2, rmax, cmax))
-    
-    rmin, cmin = caricoMin(matrice2)
-    print(f"CaricoMin: ({rmin}, {cmin})")
-    print(f"Valore calcolaCarico: ({rmin}, {cmin}):", calcolaCarico(matrice2, rmin, cmin))
