@@ -30,34 +30,23 @@ class Frazione:
         return round(divisione, 3)
 
 
-def mcd(x: int, y: int):
-    # divisori_x = []
-    # divisori_y = []
+def mcd(x: int, y: int) -> int:
+    max_divisor = 1
+   
+    #supponiamo x > y
+    end: int = x
 
-    # for i in range(1, x+1):
-    #     if i % 1 == 0:
-    #         divisori_x.append(i)
+    #se y > x, modifichiamo il valore di end
+    if y > x:
+        end = y 
     
-    # for j in range(1, y+1):
-    #     if y % 1 == 0:
-    #         divisori_y.append(j)
+    # troviamo i divisori comuni, ovvero i valori di i per cui la divisione x/i e la divisione di y/i danno entrambe resto 0 
+    for i in range(1, end+1):
+        if x % i == 0 and y % i == 0:
+            if i > max_divisor:
+                max_divisor = i 
+    return max_divisor 
 
-    # divisori_comuni = []
-    # for d_x in divisori_x:
-    #     for d_y in divisori_y:
-    #         if d_x == d_y:
-    #             divisori_comuni.append(d_x)
-    
-    # if divisori_comuni:
-    #     return max(divisori_comuni)
-    # else:
-    #     return 1
-    
-    if x < y:
-        x, y = y, x 
-    while y != 0:
-        x, y = y, x % y 
-    return x 
     
 def semplifica(l: list[Frazione]) -> list:
     lista_semplificata = []

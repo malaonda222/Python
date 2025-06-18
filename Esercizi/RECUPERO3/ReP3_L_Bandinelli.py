@@ -46,5 +46,8 @@ class Alieno(Creatura):
 
     def _str__(self) -> str:
         return f"Alieno: {self.getNome}"
+
+class Mostro(Creatura):
+    def __init__(self, nome: str, urlo_vittoria: str, gemito_sconfitta: str, )
     
     

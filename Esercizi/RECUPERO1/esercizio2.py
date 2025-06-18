@@ -1,4 +1,4 @@
-def validazione_numero(num: float):
+def validazione_numero(num: float) -> bool:
     if num.is_integer() and num > 0:
         return True
     else:
@@ -9,6 +9,7 @@ while True:
     if validazione_numero(x) == True:
         break
 print(f"Il numero scelto è: {int(x)}")
+
 
 sequenza_numeri = []
 while True:
