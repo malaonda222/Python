@@ -17,4 +17,4 @@ if __name__ == '__main__':
         if k in d:
             print(f"Prodotto {k[0]} x {k[1]} = {d[k]}")
         else:
-            print(f"Chiave {k} non presente nel dizionario.")
+            print(f"Chiave {k} non presente nel dizionario.")   
