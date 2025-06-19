@@ -131,27 +131,17 @@ def proclamaVincitore(c: Creatura):
         print("Oggetto non valido. deve essere una creatura.")
         return 
     
-    testo = str(c)
-    larghezza = len(testo)+10
+    testo: str = c.__str__()
+    lunghezza = len(testo)+10
     altezza = 5
 
-    for i in range(altezza):
-        for j in range(larghezza):
-            if i == 0 or i == altezza - 1:
-                print("*"*larghezza)
-                break
-            elif j == 0 and i == 1:
-                print("*", end="")
-                print()
-            elif j == larghezza and i == 1:
-                print("*", end="")
-                print()
-            if i == 2 and j == 5:
-                print(testo, end="")
-                break 
-            else:
-                print(" ", end= "")
-        print()
+    for i in range(5):
+        if i == 0 or i == altezza-1:
+            print("*"*lunghezza)
+        elif i == 2:
+            print("*" + " " * 4 + testo + " " + "*")
+        else:
+            print("*" + ((lunghezza-2)*" ") + "*")
 
 if __name__ == '__main__':
     mostro = Mostro("Godzilla", "GRAAAHHH", "Uuurghhh")
