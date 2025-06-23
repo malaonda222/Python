@@ -38,3 +38,6 @@ def bin_search(lista: list[int], numero: int) -> bool:
     elif lista[mid] > numero:
         bin_search(lista[:mid], numero)
     
+
+
+
