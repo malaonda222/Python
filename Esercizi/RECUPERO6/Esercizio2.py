@@ -25,5 +25,4 @@ def nomi():
         if len(nome) > len(max_nome):
             max_nome = nome 
     print(f"Il nome più lungo della lista è {max_nome} con {len(max_nome)} caratteri")
-
 nomi()
