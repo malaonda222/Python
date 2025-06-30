@@ -43,3 +43,25 @@ print(count(text3))
 
 text4 = " "
 print(count(text4))
+
+
+
+
+
+
+def frequenza(stringa: str) -> dict[str, int]:
+    punteggiatura = ".,;:!?()[]{}\"'`«»<>-_—…"
+    new_dict1: dict[str, int] = {}
+    tokens = stringa.split(" ")
+    for token in tokens:
+        new_token = token.lower().strip(punteggiatura)
+        if new_token == "":
+            continue 
+        if new_token not in new_dict1:
+            new_dict1[new_token] = 1
+        else:
+            new_dict1[new_token] += 1
+    return new_dict1
+
+text10 = "Hello, world! Hello... PYTHON? world."
+print(frequenza(text10))

@@ -82,3 +82,21 @@ mat2 = [
 print(primary_diagonal(mat1))
 print(secondary_diagonal(mat2))
 
+
+def sum_primary(matrix: list[int]) -> int:
+    for item in matrix:
+        if not isinstance(item, int):
+            raise ValueError
+    somma_diagonali = 0
+    for i in range(len(matrix)):
+        somma_diagonali += matrix[i][i]
+    return somma_diagonali
+
+def sum_secondary(matrix: list[int]) -> int:
+    for item in matrix:
+        if not isinstance(item, int):
+            raise ValueError
+    somma_diago = 0
+    for i in range(len(matrix)):
+        somma_diago += matrix[i][len(matrix) - 1 - i]
+    return somma_diago

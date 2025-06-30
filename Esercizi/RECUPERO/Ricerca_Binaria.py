@@ -37,7 +37,37 @@ def bin_search(lista: list[int], numero: int) -> bool:
         bin_search(lista[mid + 1:], numero)
     elif lista[mid] > numero:
         bin_search(lista[:mid], numero)
+
+
+
+
+
+def ricerca_binaria(lista: list[int], numero: int) -> bool:
+    for item in lista:
+        if not isinstance(item, int):
+            raise ValueError
+        else:
+            continue
+
+    if not isinstance(numero, int):
+        raise ValueError
     
+
+    lista_ordinata: list = sorted(lista)
+    inizio = 0
+    fine = len(lista_ordinata) - 1
+    while inizio <= fine:
+        medio = (inizio + fine) // 2
+        if numero == lista_ordinata[medio]:
+            return True 
+        if numero < lista_ordinata[medio]:
+            inizio = medio + 1 
+        else:
+            fine = medio - 1
+    return False
+
+
+
 
 
 

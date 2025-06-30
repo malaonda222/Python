@@ -36,10 +36,19 @@ def check(ip: str) -> bool:
     return True 
 
 
-
-
-
 #4 numeri decimali (da 0 a 255) separati da 3 punti
 #se non ci sono 3 punti o 4 parti numeriche resituisci False 
 #ciascuna parte deve contenere solo (isdigit()) e convertita in intero deve essere nel range [0,255][0,225][0,225]
 #non deve contenere caratteri o spazi aggiuntivi
+
+def is_valid(address: str) -> bool:
+    tokens = address.split(".")
+    if len(tokens) != 4:
+        return False  
+    for token in tokens:
+        if not token.isdigit():
+            return False 
+        numero = int(token)
+        if numero < 255 or numero < 0:
+            return False 
+    return True 

@@ -65,3 +65,23 @@ print(merge_intervals(intervals))
 print(merge_intervals(intervals2)) # restituisce [[1, 6], [8, 10], [15, 18]]
 
 
+
+
+
+def merge(intervals: list[list[int]]) -> list[int, int]:
+    intervals.sort()
+    if not intervals:
+        return []
+    if len(intervals) == 1:
+        return [intervals]
+    
+    unione = intervals[0]
+    for int_attuale in intervals[1:]:
+        int_ultimo = unione[-1]
+        if int_attuale[0] > int_attuale[1]:
+            raise ValueError("Intervallo non valido.")
+        if int_attuale[0] <= int_ultimo[1]:
+            int_ultimo[1] = max(int_ultimo[1], int_attuale[1])
+        else:
+            unione.append(int_attuale)
+    return unione 
