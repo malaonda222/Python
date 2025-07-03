@@ -1,0 +1,508 @@
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+Non è possibile riservare 100 posti nella classe economica. Numero posti disponibili: 70
+
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 19000.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+Non è possibile riservare 100 posti nella classe economica. Numero posti disponibili: 70
+
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 19000.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+Non è possibile riservare 100 posti nella classe economica. Numero posti disponibili: 70
+
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 19000.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+Non è possibile riservare 100 posti nella classe economica. Numero posti disponibili: 70
+
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 19000.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+Non è possibile riservare 100 posti nella classe economica. Numero posti disponibili: 70
+
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 19000.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 16150.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 20}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 10}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 16150.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 9310.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Ecco la flotta della compagnia aerea Ryanair:
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 9310.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 9310.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 9310.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 14700.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 11760.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12740.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12446.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12250.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12054.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+Codice volo: COM123
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Errore. Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+Il volo charter CHA456 è già prenotato.
+
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
