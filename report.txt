@@ -506,3 +506,39 @@ None
 None
 None
 Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro
+Posti disponibili sul volo commerciale: 
+{'posti_disponibili': 100, 'economica': 70, 'business': 20, 'prima': 10}
+None
+None
+Non ci sono posti disponibili nella classe economica del volo COM123
+
+None
+{'posti_disponibili': 0, 'economica': 0, 'business': 0, 'prima': 0}
+None
+None
+
+Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato 12152.0 euro

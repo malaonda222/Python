@@ -175,17 +175,18 @@ if __name__ == '__main__':
     ita.aggiungi_volo(volo1)
     ita.aggiungi_volo(volo2)
 
-    messaggio11 = "Ecco la flotta della compagnia aerea ITA:"
+    messaggio11 = "\nEcco la flotta della compagnia aerea ITA:"
     print(messaggio11)
     messaggio12 = ita.mostra_flotta()
     report.append(messaggio12)
     
     print()
-    messaggio13 = f"Dalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato {ita.guadagno()} euro"
+    messaggio13 = f"\nDalla vendita dei biglietti aerei, la compagnia aerea Ryanair ha guadagnato {ita.guadagno()} euro"
     report.append(messaggio13)
     print(messaggio13)
 
 
+    #print(report)
     with open("report.txt", "a") as file:
-        for messaggio in report:
-            file.write(str(messaggio) + "\n")
+        for item in report:
+            file.write(str(item) + "\n")
