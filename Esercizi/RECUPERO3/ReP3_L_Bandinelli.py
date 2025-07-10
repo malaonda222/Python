@@ -8,7 +8,6 @@ class Creatura:
     def setNome(self, nome: str) -> None:
         if not isinstance(nome, str) or not nome.strip():
             self._nome = "Creatura Generica"
-        self._nome = nome
 
     def getNome(self) -> str:
         return self._nome 
