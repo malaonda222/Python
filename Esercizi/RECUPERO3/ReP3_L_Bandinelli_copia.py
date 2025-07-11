@@ -19,13 +19,12 @@ class Creatura:
     
 
 class Alieno(Creatura):
-    def __init__(self, nome: str):
+    def __init__(self, nome: str) -> None:
         super().__init__(nome)
         self._matricola = self.__setMatricola()
         self._munizioni = self.__setMunizioni()
         
         nome_robot = f"Robot- {self._matricola}"
-        self.setNome(nome_robot)
         if self.getNome() != nome_robot:
             print("Attenzione! Tutti gli Alieni devono avere il nome 'Robot' seguito dal numero di matricola!")
             print("Reimpostazione nome Alieno in Corso!")
@@ -50,35 +49,41 @@ class Alieno(Creatura):
     
 
 class Mostro(Creatura):
-    def __init__(self, nome: str, urlo_vittoria: str, gemito_sconfitta: str):
+    def __init__(self, nome: str, urlo_vittoria: str, gemito_sconfitta: str, assalto: list[int] = None):
         super().__init__(nome)
+        self.__urlo_vittoria = ""
+        self.__gemito_sconfitta = ""
         self.__setVittoria(urlo_vittoria)
         self.__setSconfitta(gemito_sconfitta)
-        self.__setAssalto()
-    
-    def __setVittoria(self, vittoria: str):
-        if isinstance(vittoria, str) and vittoria.strip() != "":
-            self.__urlo_vittoria = vittoria 
+
+        if assalto is None:
+            self.__setAssalto()
         else:
-            self.__urlo_vittoria = "GRAAAHHH"
-    
-    def __setSconfitta(self, sconfitta: str):
-        if isinstance(sconfitta, str) and sconfitta.strip() != "":
-            self.__gemito_sconfitta = sconfitta 
-        else:
-            self.__gemito_sconfitta = "Uuurghhh"
+            self.__assalto = assalto
 
     def __setAssalto(self):
         self.__assalto = random.sample(range(1, 101), 15)
-    
+
+    def getAssalto(self):
+        return self.__assalto
+
     def getUrloVittoria(self) -> str:
         return self.__urlo_vittoria
     
     def getGemitoSconfitta(self) -> str:
         return self.__gemito_sconfitta
 
-    def getAssalto(self):
-        return self.__assalto
+    def __setVittoria(self, vittoria: str):
+        if isinstance(vittoria, str) and vittoria.strip():
+            self.__urlo_vittoria = vittoria 
+        else:
+            self.__urlo_vittoria = "GRAAAHHH"
+    
+    def __setSconfitta(self, sconfitta: str):
+        if isinstance(sconfitta, str) and sconfitta.strip():
+            self.__gemito_sconfitta = sconfitta 
+        else:
+            self.__gemito_sconfitta = "Uuurghhh"
 
     def __str__(self) -> str:
         name = ""
@@ -108,22 +113,26 @@ def pariUguali(a: list[int], b: list[int]) -> list[int]:
 
 
 def combattimento(a: Alieno, m: Mostro):
-    if not isinstance(a, Alieno) or not isinstance(m, Mostro):
-        print(f"Combattimento interrotto.")
+    if not isinstance(a, Alieno):
+        print("Errore, l'oggetto 'a' non è un alieno valido!")
+        print("Combattimento interrotto")
+        return None
+    if not isinstance(m, Mostro):
+        print("Errore, l'oggetto 'b' non è un mostro valido!")
+        print("Combattimento interrotto")
         return None 
+    
+    print("Combattimento in corso...")
+    
+    result = pariUguali(a.getMunizioni(), m.getAssalto())
+    
+    if result.count(1) > 4:
+        print("Mostro vince!")
+        print(f"{m.getUrloVittoria()}\n"*3)
+        return m
     else:
-        result = pariUguali(a.getMunizioni(), m.getAssalto())
-        conteggio = result.count(1)
-        if conteggio > 4:
-            print("Mostro vince!")
-            print(m.getUrloVittoria())
-            print(m.getUrloVittoria())
-            print(m.getUrloVittoria())
-            return m
-        else:
-            print("Alieno vince!")
-            print(m.getGemitoSconfitta())
-            return a
+        print(m.getGemitoSconfitta())
+        return a
 
 
 def proclamaVincitore(c: Creatura):
@@ -148,19 +157,18 @@ def proclamaVincitore(c: Creatura):
 
 if __name__ == '__main__':
     mostro = Mostro("Godzilla", "GRAAAHHH", "Uuurghhh")
-    alieno = Alieno("Yoki")
+    alieno = Alieno("nome=None")
 
     print(mostro)
-    print(mostro.getAssalto())
+    print(f"Assalto: {mostro.getAssalto()}\n")
     print()
     print(alieno)
-    print(alieno.getMunizioni())
+    print(f"Alieno: {alieno.getMunizioni()}\n")
     print()
 
     print("---COMBATTIMENTO---")
-    combattimento(alieno, mostro)
+    vincitore = combattimento(alieno, mostro)
     print()
 
-    vincitore = mostro if pariUguali(alieno.getMunizioni(), mostro.getAssalto()).count(1) > 4 else alieno 
-    print("---VINCITORE---")
-    proclamaVincitore(vincitore)
+    if vincitore:
+        proclamaVincitore(vincitore)
