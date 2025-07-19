@@ -5,3 +5,15 @@ def recursive_frase(s: str) -> str:
     
 
 print(recursive_frase("ciao"))
+print(recursive_frase("precipitosamente andai"))
+
+
+
+
+def inverti_parola(parola: str) -> str:
+    if len(parola) <= 1:
+        return parola 
+    else:
+        return inverti_parola(parola[1:]) + parola[0]
+    
+print(inverti_parola("Come va?"))

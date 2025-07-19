@@ -22,6 +22,7 @@ def media_numeri_positivi():
         else: 
             contatore_positivi += 1
             numeri_positivi.append(numero)
+    
     if not numeri_positivi:
         return "Nessun numero positivo inserito"
     
