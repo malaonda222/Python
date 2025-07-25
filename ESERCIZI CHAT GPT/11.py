@@ -9,3 +9,6 @@ def word_frequency(text: str) -> dict:
     return my_dict 
 
 print(word_frequency("ciao mondo ciao"))
+
+
+

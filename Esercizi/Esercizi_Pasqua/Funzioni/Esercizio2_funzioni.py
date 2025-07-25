@@ -8,5 +8,4 @@ def somma_condizionale(numeri: list[int]) -> int :
             new_list += num
     return new_list
 
-
-
+print(somma_condizionale([3, 5, 7, 15, 6]))
