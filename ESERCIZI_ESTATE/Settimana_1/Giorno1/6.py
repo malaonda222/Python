@@ -21,3 +21,6 @@ def unico(lista2: list[int|str|bool|float]) -> list:
 
 lista2: list = (1, 4, "ciao", "fine", 5, 7, 1, 4, "fine", 5, 7)
 print(unico(lista2))
+
+numero = 2**128 
+print(len(numero))
