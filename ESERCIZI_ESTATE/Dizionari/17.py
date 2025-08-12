@@ -22,6 +22,24 @@ def media_voti_sopra(lista_studenti: list[dict[str, list[int]]], soglia: int) ->
         new_dict[studente["nome"]] = media  
     return new_dict
 
+
+def media_voti_sopra2(list_studenti: list[dict[str, list[int]]], soglia: int) -> dict[str, int]:
+    new_dict = {}
+    for studente in studenti:
+        contatore = 0
+        somma = 0
+        for voto in studente["voti"]:
+            if voto >= soglia:
+                contatore += 1
+                somma += voto 
+        if contatore > 0:
+            media = (somma/contatore)
+        else:
+            media = 0.0 
+        new_dict[studente["nome"]] = media 
+    return new_dict
+
+
 studenti = [
     {"nome": "Marco", "voti": [10, 25, 30, 18]},
     {"nome": "Giulia", "voti": [28, 16, 12]},
