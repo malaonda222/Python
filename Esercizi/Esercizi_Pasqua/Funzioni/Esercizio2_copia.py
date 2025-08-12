@@ -10,3 +10,4 @@ def somma_numeri(lista_num: list[int|float]) -> float:
 
 
 print(somma_numeri([30, 1, 4, 15, 70, 19.09, 6, 12]))
+print(somma_numeri([7, 18, 26, 3333, 59]))
