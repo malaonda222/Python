@@ -38,8 +38,6 @@ def media_voti_sopra2(studenti: list[dict[str, list[int]]], soglia: int) -> dict
     return new_dict
         
 
-
-
 studenti = [
     {"nome": "Anna", "voti": [15, 18, 22, 10]},
     {"nome": "Luca", "voti": [20, 17, 19, 13]},
