@@ -11,3 +11,26 @@ studenti = [
     {"nome": "Giulia", "materie": {"matematica": 21, "storia": 20}},
     {"nome": "Elena", "materie": {"matematica": 26, "storia": 17}}
 ]'''
+
+
+def peggior_voto_per_materia(studenti: list[str, dict[str, int]]) -> dict[tuple[str, int]]:
+    new_dict = {}
+    for studente in studenti:
+        for materia, voto in studente["materie"].items():
+            if materia not in new_dict:
+                new_dict[materia] = (studente["nome"], voto)
+            else:
+                if voto < new_dict[materia][1]:
+                    new_dict[materia] = (studente["nome"], voto)
+    return new_dict
+
+studenti = [
+    {"nome": "Marco", "materie": {"matematica": 24, "storia": 18}},
+    {"nome": "Giulia", "materie": {"matematica": 21, "storia": 20}},
+    {"nome": "Elena", "materie": {"matematica": 26, "storia": 17}}
+]
+
+print(peggior_voto_per_materia(studenti))
+
+
+

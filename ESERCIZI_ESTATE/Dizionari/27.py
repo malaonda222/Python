@@ -15,3 +15,24 @@ studenti = [
  
 Esempio output atteso: un dizionario del tipo {"matematica": ("Marco", 18).
 '''
+
+
+def peggior_voto_per_materia(studenti: list[dict[str, dict[str, list[int]]]]) -> dict[tuple[str, int]]:
+    new_dict = {}
+    for studente in studenti:
+        for materia, voti in studente["materie"].items():
+            voto_minimo = min(voti)
+            if materia not in new_dict:
+                new_dict[materia] = (studente["nome"], voto_minimo) 
+            else:
+                if voto_minimo < new_dict[materia][1]:
+                    new_dict[materia] = (studente["nome"], voto_minimo)
+    return new_dict
+
+studenti = [
+    {"nome": "Marco", "materie": {"matematica": [24, 18, 30], "storia": [18, 20]}},
+    {"nome": "Giulia", "materie": {"matematica": [21, 22], "storia": [20, 19]}},
+    {"nome": "Elena", "materie": {"matematica": [26, 25], "storia": [17, 21]}}
+]
+
+print(peggior_voto_per_materia(studenti))

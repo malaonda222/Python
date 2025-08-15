@@ -16,3 +16,35 @@ studenti = [
     {"nome": "Giulia", "materie": {"matematica": [21, 22], "storia": [20, 19]}},
     {"nome": "Elena", "materie": {"matematica": [26, 25], "storia": [17, 21]}}
 ]'''
+
+def voto_minimo_per_studente(studenti: list[dict[str, dict[str, list[int]]]]) -> dict[str, int]:
+    new_dict = {}
+    for studente in studenti:
+        nome = studente["nome"]
+        materie = studente["materie"]
+        voto_minimo_studente = {}
+        for materia, voti in materie.items():
+            voto_minimo_studente[materia] = min(voti)
+        new_dict[nome] = voto_minimo_studente
+    return new_dict
+
+
+def voto_minimo_per_studente_2(studenti: list[dict[str, dict[str, list[int]]]]) -> dict[str, int]:
+    return {
+    studente["nome"]: {
+        materia: min(voti) for materia, voti in studente["materie"].items()
+    }
+    for studente in studenti
+    }
+
+
+studenti = [
+    {"nome": "Marco", "materie": {"matematica": [24, 18, 30], "storia": [18, 20]}},
+    {"nome": "Giulia", "materie": {"matematica": [21, 22], "storia": [20, 19]}},
+    {"nome": "Elena", "materie": {"matematica": [26, 25], "storia": [17, 21]}}
+]
+
+print(voto_minimo_per_studente(studenti))
+print(voto_minimo_per_studente_2(studenti))
+
+

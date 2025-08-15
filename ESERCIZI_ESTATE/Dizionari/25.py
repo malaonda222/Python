@@ -18,3 +18,30 @@ studenti = [
 ]
 soglia = 20'''
 
+
+def studenti_media_se_hanno_voto_alto(studenti: list[dict[str, int]], soglia: int) -> dict[str, float]:
+    new_dict = {}
+    for studente in studenti:
+        voti_superiori = []
+        for voto in studente["voti"]:
+            if voto >= 18:
+                voti_superiori.append(voto)
+        if not voti_superiori:
+            new_dict[studente["nome"]] = None 
+        else:
+            media = sum(voti_superiori)/len(voti_superiori)
+            new_dict[studente["nome"]] = media 
+    return new_dict
+
+
+studenti = [
+    {"nome": "Marco", "voti": [10, 15, 16, 17]},
+    {"nome": "Giulia", "voti": [18, 16, 19]},
+    {"nome": "Elena", "voti": [24, 26]},
+]
+soglia = 20
+
+print(studenti_media_se_hanno_voto_alto(studenti, 18))
+
+
+
