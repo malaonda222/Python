@@ -19,4 +19,18 @@ def leggi_o_crea_file():
 
 
 
-        
+
+def leggi_o_crea():
+    nome_file1 = input("Inserisci il nome del file: ")
+    try:
+        with open(nome_file1, 'r') as file:
+            contenuto = file.read()
+            print("Contenuto: ")
+            print(contenuto)
+    except FileNotFoundError:
+        print("Creo automaticamente il file..")
+        contenuto_predefinito = "File creato automaticamente"
+        with open(nome_file1, 'w') as file:
+            file.write(contenuto_predefinito)
+            print("Contenuto: ")
+            print(contenuto_predefinito)
