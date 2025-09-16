@@ -2,7 +2,7 @@
 Crea tre istanze diverse della classe, con nomi e generi differenti.
 Chiama il metodo descrivi_libreria() per ciascuna istanza.'''
 
-from esercizio1_libreria import *
+from ESERCIZI_ESTATE.Classi.Classi1.esercizio1_libreria import *
 
 libreria1 = Libreria("Binario10", "Fantasy")
 libreria2 = Libreria("NottiMagiche", "Fantascienza")
