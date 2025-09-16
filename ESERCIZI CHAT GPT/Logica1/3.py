@@ -1,3 +1,9 @@
+'''Scrivi una funzione che prenda una lista di numeri interi e restituisca True se la lista segue una sequenza alternata tra numeri pari e dispari, altrimenti False.
+Una sequenza è alternata se:
+Un numero pari è seguito da un dispari
+E un dispari è seguito da un pari
+Per tutta la lista'''
+
 def sequenza_alternata(sequenza: list[int]) -> bool:
     for i in range(len(sequenza) - 1):
         if sequenza[i] % 2 == 0:
