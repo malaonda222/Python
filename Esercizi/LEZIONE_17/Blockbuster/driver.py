@@ -17,9 +17,22 @@ lista_film = [
 
 blockbuster = Noleggio(lista_film)
 print("Quale film vuoi noleggiare? ")
-blockbuster.rentAMovie("Kill Bill", 456)
-blockbuster.rentAMovie("Top Gun", 456)
-blockbuster.rentAMovie("Top Gun", 698)
-blockbuster.rentAMovie("Tre uomini e una gamba", 698)
-blockbuster.giveBack("Top Gun", 456, 3)
+
+film1 = lista_film[0]
+blockbuster.rentAMovie(film1, 456)
+
+film2 = lista_film[1]
+blockbuster.rentAMovie(film2, 456)
+
+blockbuster.rentAMovie(film2, 698)
+
+film3 = lista_film[7]
+blockbuster.rentAMovie(film3, 698)
+
+blockbuster.giveBack(film2, 456, 3)
+
+print("Lista dei film disponibili: ")
 blockbuster.printMovies()
+
+blockbuster.printRentMovies(698)
+

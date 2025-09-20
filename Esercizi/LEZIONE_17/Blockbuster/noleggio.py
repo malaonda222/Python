@@ -8,7 +8,7 @@ class Noleggio:
         self.rented_film = dict()
 
     def isAvailable(self, film: Azione|Commedia|Drama) -> str:
-        if not isinstance(film, (Azione|Commedia|Drama)):
+        if not isinstance(film, (Azione, Commedia, Drama)):
             raise ValueError("Film non valido")
         for f in self.film_list:
             if f.getId() == film.getId(): 
@@ -18,7 +18,7 @@ class Noleggio:
         return False
             
     def rentAMovie(self, film: Azione|Commedia|Drama, client_id: int) -> None:
-        if not isinstance(film, (Azione|Commedia|Drama)):
+        if not isinstance(film, (Azione, Commedia, Drama)):
             raise ValueError("Film non valido")
         if not isinstance(client_id, int) or client_id <= 0:
             raise ValueError("Il codice cliente deve essere un numero intero positivo")
@@ -32,7 +32,7 @@ class Noleggio:
             print(f"Non è possibile noleggiare il film {film.getTitle()}")
     
     def giveBack(self, film: Azione|Commedia|Drama, client_id: int, days: int) -> None:
-        if not isinstance(film, (Azione|Commedia|Drama)):
+        if not isinstance(film, (Azione, Commedia, Drama)):
             raise ValueError("Film non valido")
         if not isinstance(client_id, int) or client_id <= 0:
             raise ValueError("Il codice cliente deve essere un numero intero positivo")
@@ -54,7 +54,7 @@ class Noleggio:
             print("Nessun film disponibile in negozio")
             return
         for film in self.film_list:
-            print(f"'{film.getTitle()}' - {film.getGenere()}")
+            print(f"-'{film.getTitle()}' - {film.getGenere()}")
 
     def printRentMovies(self, client_id: int) -> str:
         if client_id not in self.rented_film or not self.rented_film[client_id]:
@@ -62,8 +62,4 @@ class Noleggio:
             return
         else:
             for film in self.rented_film[client_id]:
-                print(film)
-        
-
-
-         
+                print(f"Film noleggiati da cliente {client_id}:\n- '{film.getTitle()}'")
