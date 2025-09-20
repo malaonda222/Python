@@ -11,20 +11,23 @@ Scrivi una funzione filtra_e_moltiplica(liste, n) che:
     2. Moltiplichi per 2 ogni numero filtrato.
 '''
 def filtra_e_moltiplica(lista_numeri: list[list[int]], soglia: int) -> list[list[int]]:
-    lista_finale = []
+    nuova_lista = []
     for sotto_lista in lista_numeri:
-        nuova_lista = []
-        for element in sotto_lista:
-            print(element)
-    #         if element > soglia:
-    #             nuova_lista.append(element * 2)
-    # return nuova_lista
+        mini_lista = []
+        for numero in sotto_lista:
+            if numero > soglia:
+                mini_lista.append(numero*2)
+        nuova_lista.append(mini_lista)
+    return nuova_lista
 
-numeri = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+
+def filtra_e_moltiplica1(lista_numeri: list[list[int]], soglia: int) -> list[list[int]]:
+    return [list(numero*2 for numero in sotto_lista if numero > soglia) for sotto_lista in lista_numeri]
+
+
+numeri = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 soglia = 3
 print(filtra_e_moltiplica(numeri, soglia))
+print(filtra_e_moltiplica1(numeri, soglia))
+
 
