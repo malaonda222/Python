@@ -7,15 +7,15 @@ class Noleggio:
         self.film_list = film_list if film_list is not None else []
         self.rented_film = dict()
 
-    def isAvailable(self, film: Azione|Commedia|Drama) -> str:
+    def isAvailable(self, film: Azione|Commedia|Drama) -> bool:
         if not isinstance(film, (Azione, Commedia, Drama)):
             raise ValueError("Film non valido")
-        for f in self.film_list:
-            if f.getId() == film.getId(): 
-                print(f"Il film scelto è disponibile: '{film.getTitle()}'")
-                return True
-        print(f"Il film scelto non è disponibile: '{film.getTitle()}'")
-        return False
+        if film in self.film_list:
+            print(f"Il film scelto è disponibile: '{film.getTitle()}'")
+            return True
+        else:
+            print(f"Il film scelto non è disponibile: '{film.getTitle()}'")
+            return False
             
     def rentAMovie(self, film: Azione|Commedia|Drama, client_id: int) -> None:
         if not isinstance(film, (Azione, Commedia, Drama)):
