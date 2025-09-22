@@ -7,7 +7,7 @@ bilanciate("()()()") -> True
 bilanciate("))((") -> False
 bilanciate("(()())") -> True'''
 
-parentesi = input("Inserisci una sequenza di presentesi: ")
+parentesi = input("Inserisci una sequenza di parentesi: ")
 risultato = 0
 contatore = 0
 
