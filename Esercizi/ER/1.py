@@ -40,7 +40,7 @@ class TaskManager:
         if task_id not in self.tasks:
             return "Task non trovato"
         else:
-            return {task_id: self.tasks[task_id]}
+            return self.tasks[task_id]
     
 
 
