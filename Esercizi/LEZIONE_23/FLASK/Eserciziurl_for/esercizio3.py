@@ -17,4 +17,15 @@ def post(id:int) -> int:
 
 @app.route('/posts')
 def posts() -> list:
-    
+    url_id1 = url_for('post', id=1)
+    url_id10 = url_for('post', id=10)
+    url_id22 = url_for('post', id=22)
+    url_id48 = url_for('post', id=48)
+
+    risposta = "<h3>Elenco dei post con i relativi link:</h3>"
+    risposta += f"<h4>Id1 - {url_id1}</h4><br>"
+    risposta += f"<h4>Id10 - {url_id10}</h4><br>"
+    risposta += f"<h4>Id22 - {url_id22}</h4><br>"
+    risposta += f"<h4>Id48 - {url_id48}</h4>"
+
+    return risposta 
