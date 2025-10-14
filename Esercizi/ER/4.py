@@ -52,5 +52,47 @@ class UserManager:
         if username in self.utenti:
             raise ValueError("Errore. L'utente esiste già")
         else:
-            self.utenti[username] = {"nome": nome, "email": email}
+            self.utenti[username] = {"nome": nome, "email": email, "attivo": True}
             return {username: self.utenti[username]}
+        
+    def deactivate_user(self, username: str) -> dict|str:
+        if username in self.utenti:
+            raise ValueError("Errore. L'utente non esiste")
+        else:
+            self.utenti[username]["attivo"] = False 
+            return {username: self.utenti[username]}
+        
+    def reactivate_user(self, username: str) -> dict|str:
+        if username not in self.utenti:
+            raise ValueError("Errore. L'utente non esiste")
+        else:
+            self.utenti[username["attivo"]] = True 
+            return {username: self.utenti[username]}
+        
+    def remove_user(self, username: str) -> dict|str:
+        if username not in self.utenti:
+            raise ValueError("Errore. L'utente non esiste")
+        else:
+            rimosso = self.utenti.pop(username)
+            return {username: rimosso}
+        
+    def update_user(self, username: str, nuovo_nome: str, nuova_email: str) -> dict|str:
+        if username not in self.utenti:
+            raise ValueError("Errore. L'utente non esiste")
+        else:
+            self.utenti[username]["nome"] = nuovo_nome
+            self.utenti[username]["email"] = nuova_email
+            return {username: self.utenti[username]}
+        
+    def get_user(self, username: str) -> dict|str:
+        if username not in self.utenti:
+            raise ValueError("Errore. Utente non trovato.")
+        else:
+            return {username: self.utenti[username]}
+    
+    def list_users(self)-> list[str]:
+        if not self.utenti:
+            raise ValueError("Errore. La lista utenti è vuota")
+        else:
+            return list(self.utenti.keys())
+        

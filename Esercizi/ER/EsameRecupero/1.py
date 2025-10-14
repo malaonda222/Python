@@ -73,8 +73,3 @@ class TaskManager:
             return "Errore. Task non trovato"
         else:
             return self.tasks[task_id]
-
-
-
-
-h
