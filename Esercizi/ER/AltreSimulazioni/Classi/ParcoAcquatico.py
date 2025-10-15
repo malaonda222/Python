@@ -79,7 +79,8 @@ class WaterPark:
     
     def list_visitor_reservations(self, visitor_id: str) -> list[str] | str:
         if visitor_id in self.visitors:
-            return [ticket.ticket_id for ticket in self.visitors[visitor_id].reserved_tickets]
+            visitor = self.visitors[visitor_id]
+            return [ticket.ticket_id for ticket in visitor.reserved_tickets]
         else:
             return "Errore: visitatore non trovato."
         

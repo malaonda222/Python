@@ -28,3 +28,6 @@ numeri = [1, 4, 5, 3, 0]
 valore_minimo = 2 
 print(filter_and_join(numeri, valore_minimo))
 print(filter_and_join2(numeri, valore_minimo))
+
+
+# join vuole sempre SOLO stringhe 
