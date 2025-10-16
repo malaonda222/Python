@@ -120,12 +120,43 @@ class Member:
         else:
             print(f"Il corso '{course.name}' non era prenotato da questo membro.")
 
-
 class Gym:
     def __init__(self) -> None:
         self.classes: dict[str, FitnessClass] = {}
-        self.memebers: dict[str, Member] = {}
+        self.members: dict[str, Member] = {}
 
     def add_class(self, class_id: str, name: str, time_slot: str) -> None:
         if class_id in self.classes:
-            print(f"Il corso con ID")
+            print(f"Il corso con ID '{class_id}' esiste già.")
+        else:
+            self.classes[class_id] = FitnessClass(class_id, name, time_slot)
+    
+    def register_member(self, member_id: str, name: str) -> None:
+        if member_id in self.members:
+            print(f"Il membro con ID '{member_id}' è già registrato.")
+        else:
+            self.classes[member_id] = Member(member_id, name)
+    
+    def book_class_for_member(self, member_id: str, class_id: str) -> None:
+        if member_id in self.members and class_id in self.classes:
+            member = self.members[member_id]
+            course = self.classes[class_id]
+            member.book_class(course)
+        else:
+            print(f"Membro o corso non trovato.")
+    
+    def cancel_class_for_member(self, member_id: str, class_id: str) -> None:
+        if member_id in self.members and class_id in self.classes:
+            member = self.members[member_id]
+            course = self.course[class_id]
+            member.cancel_class(course)
+        else:
+            print("Membro o corso non trovato.")
+    
+    def list_available(self) -> list[str]:
+        return [class_id for class_id, course in self.classes.items() if not course.is_full]
+    
+    def list_member_bookings(self, member_id: str) -> list[str]|str:
+        if member_id in self.members:
+            member = self.members[member_id]
+            return [course.class_id for course in member.booked_classes]
