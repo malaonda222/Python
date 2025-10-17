@@ -21,5 +21,10 @@ def format_emails(users: list[dict[str, str]]) -> str:
         nuova_lista.append(f"{nome} <{email}>")
     return ",".join(nuova_lista)
 
+
+def format_emails1(users: list[dict[str, str]]) -> str:
+    formattato = [f"{user["nome"]} <{user["email"]}" for user in users]
+    return ",".join(formattato)
+
 print(format_emails([{"nome": "Anna", "email": "anna@example.com"},
     {"nome": "Marco", "email": "marco@example.com"}]))
