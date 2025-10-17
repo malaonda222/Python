@@ -47,4 +47,5 @@ def scale_to_range(values: list[float], new_min: float, new_max: float) -> list[
     return nuova_lista
 
 print(scale_to_range([10, 20, 30], 0, 100)) 
-scale_to_range([5, 5, 5], 0, 10) 
+scale_to_range([5, 5, 5], 0, 10)
+
