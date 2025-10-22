@@ -11,7 +11,7 @@ def home() -> str:
     return "" 
 
 @app.route('/userprofile/<string:username>/<int:eta>')
-def userprofile(username:str, eta: int) -> str:
+def userprofile(username: str, eta: int) -> str:
     return f"Profilo di {username} - Età: {eta}"
 
 @app.route('/users')
@@ -29,3 +29,33 @@ def users() -> list:
     risposta += f"<h4>Giada - {url_giada}</h4>"
 
     return risposta 
+
+
+
+
+# oppure 
+app = Flask(__name__)
+
+@app.route('/')
+def home() -> str:
+    return "" 
+
+@app.route('/userprofile/<string:username>/<int:eta>')
+def userprofile(username: str, eta: int) -> str:
+    return f"Profilo di {username} - Età: {eta}"
+
+@app.route('/users')
+def users() -> str:
+    elenco_utenti = [
+        ("Lisa", 55),
+        ("Marco", 10),
+        ("Mario", 28),
+        ("Giada", 46)
+    ]
+
+    result = "<h3>Elenco dei nomi degli utenti e dei loro link: </h3><br>"
+
+    for nome, eta in elenco_utenti:
+        url = url_for('userprofile', username = nome, eta = eta)
+        result += f"<h4>{nome} - <a href='{url}'>{url}</a></h4><br>"
+    return result 
