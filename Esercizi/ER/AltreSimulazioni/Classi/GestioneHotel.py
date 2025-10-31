@@ -116,15 +116,15 @@ class Guest:
     
     def book_room(self, booking: RoomBooking) -> None:
         if booking not in self.bookings:
-            self.bookings.append(booking)
             booking.book()
+            self.bookings.append(booking)
         else:
             print(f"La camera {booking.room_number} non è disponibile per il periodo richiesto")
     
     def cancel_booking(self, booking: RoomBooking) -> None:
         if booking in self.bookings:
-            self.bookings.remove(booking)
             booking.cancel() 
+            self.bookings.remove(booking)
         else:
             print(f"la prenotazione per la camera {booking.room_number} non è stata trovata tra quelle del cliente")
 
