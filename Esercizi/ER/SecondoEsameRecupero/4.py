@@ -26,5 +26,24 @@ def calculate_std_dev(nums: list[float]) -> float:
     varianza = 0
     for num in nums:
         varianza += (num-media)**2
-    result = varianza / media 
+    result = varianza / len(nums) 
     return result**0.5 
+
+
+def calculate_std_dev(nums: list[float]) -> float:
+    if not nums:
+        raise ValueError("lista vuota")
+    else:
+        somma = 0.0
+        for num in nums:
+            somma += num 
+        media = somma / len(nums)
+
+        somma_varianza = 0.0
+        for num in nums:
+            differenza = (num - media) ** 2
+            somma_varianza += differenza 
+        media_varianza = somma_varianza / len(nums)
+        return media_varianza ** 0.5
+    
+

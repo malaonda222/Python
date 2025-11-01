@@ -12,3 +12,13 @@ def filter_and_concat1(nums: list[int], min_value: int) -> str:
 
 print(filter_and_concat([1, 4, 5, 3, 6, 77, 72], 15))
 print(filter_and_concat1([1, 4, 5, 3, 6, 77, 72], 15))
+
+
+def filter_and_concat2(nums: list[int], min_value: int) -> str:
+    nuova_lista = []
+    for num in nums:
+        if num > min_value:
+            nuova_lista.append(str(num))
+    return ", ".join(nuova_lista)
+
+print(filter_and_concat2([1, 5, 4, 9, 82], 4))
