@@ -51,3 +51,50 @@ tasks = {
 tm = TaskManager(tasks)
 create = tm.create_task("task_03", "blaa")
 print(create)
+
+
+
+
+
+
+
+class TaskManager:
+    def __init__(self) -> None:
+        self.tasks: dict[str [str, bool]] = {}
+
+    def create_task(self, task_id: str, descrizione: str) -> dict|str:
+        if task_id in self.tasks:
+            return "Errore. Task esiste già"
+        else:
+            self.tasks[task_id] = {"descrizione": descrizione, "completato": False}
+            return {task_id: self.tasks[task_id]}
+    
+    def complete_task(self, task_id: str) -> dict|str:
+        if task_id not in self.tasks:
+            return "Errore. Task non esiste"
+        else:
+            self.tasks[task_id]["completato"] = True 
+            return {task_id: self.tasks[task_id]}
+    
+    def update_description(self, task_id: str, nuova_descrizione: str) -> dict|str:
+        if task_id not in self.tasks:
+            return "Errore. Task non esiste"
+        else:
+            self.tasks[task_id]["descrizione"] = nuova_descrizione
+            return {task_id: self.tasks[task_id]}
+    
+    def remove_task(self, task_id: str) -> dict|str:
+        if task_id not in self.tasks:
+           return "Errore. Task non esiste"
+        else:
+            rimosso = self.tasks.pop(task_id)
+            return {task_id: rimosso}
+    
+    def list_tasks(self) -> list[str]:
+        return list(self.tasks.keys())
+
+    def get_tasks(self, task_id: str) -> dict|str:
+        if task_id not in self.tasks:
+            return "Task non trovato"
+        else:
+            return self.tasks[task_id]

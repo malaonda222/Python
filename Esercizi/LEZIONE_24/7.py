@@ -16,3 +16,4 @@ def frequency_dict(elements: list[Any]) -> dict|str:
         return {}
     else:
         return risultato
+    

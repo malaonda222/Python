@@ -9,4 +9,3 @@ def merge_dictionaries(dict1: dict, dict2: dict) -> dict:
             dict1[key] = value 
     return dict1
 
-
