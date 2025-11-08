@@ -120,7 +120,7 @@ class VideoRentalStore:
     
     def get_rented_movies(self, customer_id: str) -> list[Movie]:
         if customer_id not in self.customers:
-            print("cliente non trovato.")
+            print("Cliente non trovato.")
             return []
         else:
             customer = self.customers[customer_id]
@@ -128,6 +128,8 @@ class VideoRentalStore:
             for movie in customer.rented_movies:
                 nuova_lista.append(movie)
             return nuova_lista
+        
+            return [movie.title for movie in customer.rented_movie]
         
     
         

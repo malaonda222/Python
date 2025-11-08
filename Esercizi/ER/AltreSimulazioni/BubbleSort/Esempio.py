@@ -4,7 +4,7 @@ n = len(lista_tuple)
 '''ordinare in modo decrescente'''
 for i in range(n):
     for j in range(0, n-i-1):
-        if lista_tuple[j][1] < lista_tuple[j+1]:
+        if lista_tuple[j][1] < lista_tuple[j+1][1]:
             lista_tuple[j], lista_tuple[j+1] = lista_tuple[j+1], lista_tuple[j]
  
 '''ordinare in modo crescente'''

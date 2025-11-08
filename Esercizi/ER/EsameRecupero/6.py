@@ -37,4 +37,4 @@ class AppointmentScheduler:
         if app_id not in self.appointments:
             return "Errore, appuntamento non trovato"
         else:
-            return {app_id: self.appointments[app_id]}
+            return self.appointments[app_id]
