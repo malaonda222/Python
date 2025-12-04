@@ -30,6 +30,19 @@ def posts() -> list:
 
     return risposta 
 
+#oppure 
+
+def posts() -> str:
+    ids = [1, 10, 22, 48]  
+    risposta = "<h3>Elenco dei post con i relativi link:</h3>"
+    
+    for i in ids:
+        url = url_for('post', id=i)
+        risposta += f"<h4>Id{i} - {url}</h4><br>"
+
+    return risposta
+
+
 
 
 #oppure 
