@@ -1,4 +1,4 @@
-import requests 
+import requests
 import json 
 
 if __name__ == "__main__":
@@ -8,7 +8,7 @@ if __name__ == "__main__":
     }
 
     # Esempio di GET
-    response = requests.get(
+    response = request.get(
         url= 'http://localhost:5000/libri',
         headers=headers
     )
@@ -21,14 +21,14 @@ if __name__ == "__main__":
         'cognome': 'Cascio'
     }
     # Versione senza dumps
-    response_post = requests.post(
+    response_post = request.post(
         url='http://localhost:5000/api/utenti', #esempio di endpoint 
         json=payload,
         headers=headers
     )
 
     # Versione con dumps
-    response_post = requests.post(
+    response_post = request.post(
         url='http://localhost:5000/api/utenti',
         data=json.dumps(payload),
         headers=headers
