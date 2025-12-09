@@ -1,7 +1,6 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from flask import Flask, jsonify, url_for
-import requests
 
 
 class Ride(ABC):
