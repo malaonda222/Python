@@ -1,5 +1,5 @@
 from __future__ import annotations
-from flask import Flask, jsonify, url_for, requests 
+from flask import Flask, jsonify, url_for
 from abc import ABC, abstractmethod
 
 class Animal(ABC):
@@ -23,7 +23,7 @@ class Animal(ABC):
             "name": self.name,
             "species": self.species(),
             "age_years": self.age_years,
-            "weight_kg": self.age_years,
+            "weight_kg": self.age_weight_kg,
             "daily_food_grams": self.daily_food_grams()
         }
     
@@ -93,3 +93,40 @@ class Shelter:
     
     def set_adopted(self, animal_id: str, adopter_name: str):
         self.adoptions[animal_id] = adopter_name
+
+
+shelter = Shelter() 
+
+fufi = Dog("123abc", "Fufi", 5, 20, "Labrador", True)
+mira = Cat("456def", "Mira", 6, 3, False, "mouse")
+
+shelter.add(fufi)
+shelter.add(mira)
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return jsonify({
+        "message": "Welcome to Animal Shelter API",
+        "routes": {
+            "animals": url_for('animals'),
+            "animal_id": url_for('animal_id'),
+            "animal_id_food": url_for('animal_id_food'),
+            "animal_id_adoption": url_for('animal_id_adoption')
+        }
+    })
+
+@app.route('/animals')
+def animals():
+    return jsonify(shelter.list_all())
+
+@app.route('/animals/<string:animal_id>')
+def animal_id(animal_id: str):
+    animal = shelter.get(animal_id)
+    if animal is None:
+        return jsonify({"Error": "Animal not found"}), 404
+    return jsonify(animal.info())
+
+@app.route('/animals/<string:animal_id/food')
+def animal_id_food()
