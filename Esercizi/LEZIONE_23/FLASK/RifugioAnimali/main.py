@@ -2,45 +2,53 @@ from __future__ import annotations
 from flask import Flask, jsonify, url_for, request
 from abc import ABC, abstractmethod
 
+
+'''Classi di dominio'''
+
 class Animal(ABC):
-    def __init__(self, id: str, name: str, age_years: int, weight_kg: float) -> None:
-        self.id: str = id
+    def __init__(self, animal_id: str, name: str, age_years: int, weight_kg: float) -> None:
+        self.id: str = animal_id
         self.name: str = name 
         self.age_years: int = age_years
         self.weight_kg: float = weight_kg
 
     @abstractmethod
     def species(self):
+        """Specie dell'animale (dog, cat, ..)"""
         pass 
 
     @abstractmethod
-    def daily_food_grams(self):
+    def daily_food_grams(self) -> int:
+        """Quantità di cibo giornaliera in grammi."""
         pass 
 
+    def bmi_like(self) -> float:
+        """Indice fittizio di forma fisica."""
+        return self.weight_kg / (self.age_years + 1)
+    
     def info(self) -> dict:
+        """Informazioni di base + eventuali attributi specifici nelle sottoclassi."""
         return {
             "id": self.id,
             "name": self.name,
             "species": self.species(),
             "age_years": self.age_years,
             "weight_kg": self.age_weight_kg,
+            "bmi_like": self.bmi_like(),
             "daily_food_grams": self.daily_food_grams()
         }
     
-    def bmi_like(self):
-        return self.weight_kg / (self.age_years + 1)
-    
 
 class Dog(Animal):
-    def __init__(self, id: str, name: str, age_years: int, weight_kg: float, breed: str, is_trained: bool) -> None:
-        super().__init__(id, name, age_years, weight_kg)
+    def __init__(self, animal_id: str, name: str, age_years: int, weight_kg: float, breed: str, is_trained: bool) -> None:
+        super().__init__(animal_id, name, age_years, weight_kg)
         self.breed: str = breed
         self.is_trained: bool = is_trained
     
-    def species(self):
+    def species(self) -> str:
         return "dog"
     
-    def daily_food_grams(self):
+    def daily_food_grams(self) -> int:
         return round(200 + self.age_years * 50, 2)
     
     def info(self) -> dict:
@@ -51,8 +59,8 @@ class Dog(Animal):
     
 
 class Cat(Animal):
-    def __init__(self, id: str, name: str, age_years: int, weight_kg: float, indoor_only: bool, favorite_toy: str) -> None:
-        super().__init__(id, name, age_years, weight_kg)
+    def __init__(self, animal_id: str, name: str, age_years: int, weight_kg: float, indoor_only: bool, favorite_toy: str) -> None:
+        super().__init__(animal_id, name, age_years, weight_kg)
         self.indoor_only: bool = indoor_only
         self.favorite_toy: str = favorite_toy
 
@@ -74,31 +82,42 @@ class Shelter:
         self.animals: dict = animals if animals is not None else {}
         self.adoptions: dict = adoptions if adoptions is not None else {}
 
-    def add(self, animal: Animal):
+        # oppure senza mettere niente tra le parentesi dell'__init__:
+        # self.animals: dict[str, Animal] = {}
+        # self.adoptions: dict[str, str] = {}
+
+    def add(self, animal: Animal) -> bool:
+        """Aggiunge un animale. Ritorna False se l'id esiste già."""
         if animal.id in self.animals:
             raise ValueError("Errore. Id animale già esistente")
         self.animals[animal.id] = animal
+        return True
     
     def get(self, animal_id: str) -> Animal | None:
         if animal_id not in self.animals:
             return None 
         else:
-            return self.animals[animal_id]
+            return self.animals[animal_id] #oppure self.animals.get(animal_id)
     
     def list_all(self) -> list[Animal]:
-        return [animal.info() for animal in self.animals.values()]
+        return list(self.animals.values())
 
     def is_adopted(self, animal_id: str) -> bool:
         return animal_id in self.adoptions 
     
-    def set_adopted(self, animal_id: str, adopter_name: str):
+    def set_adopted(self, animal_id: str, adopter_name: str) -> None:
         self.adoptions[animal_id] = adopter_name
 
+    def get_adopter(self, animal_id: str) -> str | None:
+        return self.adoptions.get(animal_id)
+
+
+'''Inizializzazione dati'''
 
 shelter = Shelter() 
 
 fufi = Dog("123abc", "Fufi", 5, 20, "Labrador", True)
-mira = Cat("456def", "Mira", 6, 3, False, "mouse")
+mira = Cat("456def", "Mira", 6, 3, False, "ball")
 
 shelter.add(fufi)
 shelter.add(mira)
@@ -106,7 +125,7 @@ shelter.add(mira)
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home(): #oppure index
     sample_dog_id = "123abc"
     return jsonify({
@@ -120,98 +139,147 @@ def home(): #oppure index
         }
     })
 
-@app.route('/animals')
+@app.route('/animals', methods=['GET'])
 def list_animals():
+    """Restituisce la lista di tutti gli animali nel rifugio."""
     animals_info = [animal.info() for animal in shelter.list_all()]
     return jsonify(animals_info)
 
-@app.route('/animals/<string:animal_id>')
+@app.route('/animals/<string:animal_id>', methods=['GET'])
 def get_animal(animal_id: str):
+    """Restituisce i dettagli di un singolo animale."""
     animal = shelter.get(animal_id)
-    if animal is None:
+    if not animal:
         return jsonify({"Error": "Animal not found"}), 404
     return jsonify(animal.info())
 
-@app.route('/animals/<string:animal_id>/food')
+@app.route('/animals/<string:animal_id>/food', methods=['GET'])
 def get_food(animal_id: str):
+    """Restituisce il cibo giornaliero consigliato per l'animale."""
     animal = shelter.get(animal_id)
-    if animal is None:
+    if not animal:
         return jsonify({"Error": "Animal not found"}), 404
-    return jsonify(animal.daily_food_grams())
+    return jsonify({
+        "id": animal.id,
+        "name": animal.name,
+        "species": animal.species,
+        "daily_food_grams": animal.daily_food_grams()
+    })
 
-@app.route('/animals/<string:animal_id>/adoption')
+@app.route('/animals/<string:animal_id>/adoption', methods=['GET'])
 def get_adoption(animal_id: str):
+    """Restituisce lo stato di adozione dell'animale."""
     animal = shelter.get(animal_id)
-    return jsonify(animal.id, animal.is_adopted()) 
-
-@app.route('/animals', methods=["POST"])
+    if not animal:
+        return jsonify({"Error": "Animal not found"}), 404
+    
+    if shelter.is_adopted(animal_id):
+        adopter = shelter.get_adopter(animal_id)
+        return jsonify({
+            "id": animal.id, 
+            "adopter": True,
+            "adopter_name": adopter
+        })
+    else:
+        return jsonify({
+            "id": animal.id,
+            "adopter": False
+            
+        })
+    
+@app.route('/animals/add', methods=["POST"])
 def add_animal():
+    """
+    Aggiunge un nuovo animale.
+    Body JSON richiesto:
+    - type: "dog" o "cat"
+    - campi comuni: id, name, age_years, weight_kg
+    - per dog: breed, is_trained
+    - per cat: indoor_only, favorite_toy
+    """
+
     dati = request.get_json()
     if dati is None:
         return jsonify({"Error": "Invalid or missing JSON body"}), 400
     
     animal_type = dati.get("type")
+    animal_id = dati.get("id")
+    name = dati.get("name")
+    age_years = dati.get("age_years")
+    weight_kg = dati.get("weight_kg")
+
+    if not all([animal_type, animal_id, name]) or age_years is None or weight_kg is None:
+        return jsonify({"Error": "Missing required fields"}), 400
+    
+    if shelter.get(animal_id) is not None:
+        return jsonify({"Error": "Animal with this id already exist"})
 
     if animal_type not in ["dog", "cat"]:
         return jsonify({"Errore": "Animal type not valid"})
     
-    common_fields = ["id", "name", "age_years", "weight_kg"]
-    specific_field = ["breed", "is_trained"] if animal_type == "dog" else ["indoor_only", "favorite_toy"]
-    fields = common_fields + specific_field
-
-    missing_fields = [field for field in fields if field not in dati]
-    if missing_fields:
-        return jsonify({"Error": "Campi mancanti", "missing": missing_fields}), 400
-    
-    if shelter.get(dati['id']) is not None:
-        return jsonify({"Error": "Animal id already exists"}), 400
+    try:
+        age_years = int(age_years)
+        weight_kg = float(weight_kg)
+    except ValueError:
+        return jsonify({"Error": "age_years must be int, weight_kg must be float"}), 400
     
     if animal_type == "dog":
-        new_animal = Dog(
-            id=dati["id"],
-            name=dati["name"],
-            age_years=dati["age_years"],
-            weight_kg=dati["weight_kg"],
-            breed=dati["breed"],
-            is_trained=dati["is_trained"]
-        )
+        breed = dati.get("breed")
+        is_trained = dati.get("is_trained")
+        if breed is None or is_trained is None:
+            return jsonify({"Error": "Missing fields for dog: breed, is_trained"}), 400
+        animal = Dog(animal_id=animal_id, name=name, age_years=age_years, breed=breed, is_trained=bool(is_trained))       
+    elif animal_type == "cat":
+        indoor_only = dati.get("indoor_only"),
+        favorite_toy = dati.get("favorite_toy")
+        if indoor_only is None or favorite_toy is None:
+            return jsonify({"Error": "Missing field for the cat: indoor_only, favorite_toy"}), 400
+        animal = Cat(animal_id=animal_id, name=name,age_years=age_years, indoor_only=bool(indoor_only), favorite_toy=favorite_toy)
     else:
-        new_animal = Cat(
-            id=dati["id"],
-            name=dati["name"],
-            age_years=dati["age_years"],
-            weight_kg=dati["weigth_kg"],
-            indoor_only=dati["indoor_only"],
-            favorite_toy=dati["favorite_toy"]
-        )
+        return jsonify({"Error": "Unknown animal type, expected 'dog' or 'cat'"}), 400
     
-    shelter.add(new_animal)
-
+    shelter.add(animal)
     return jsonify({
         "status": "ok", 
-        "added": {"id": "d3", "species": new_animal.species()}
+        "added": animal.info()
     }), 201 
 
-@app.route('/animals/<string:animal_id>', methods=['POST'])
-def get_adoption(animal_id: str):
+@app.route('/animals/<string:animal_id>/adopt', methods=['POST'])
+def adopt_animal(animal_id: str):
+    """
+    Registra l'adozione di un animale.
+    Body JSON:
+    {
+        "adopter_name": "Mario Rossi"
+    }
+    """
+    animal = shelter.get(animal_id)
+    if not animal:
+        return jsonify({"Error": "Animal not found"}), 404
+    
+    if shelter.is_adopted(animal_id):
+        return jsonify({"Error": "Animal already adopted"}), 400
+    
     dati = request.get_json()
     if not dati or "adopter_name" not in dati:
         return jsonify({"Error": "JSON must contain at least one adopter_name"}), 400
 
-    animal = shelter.get(animal_id)
-    if animal is None:
-        return jsonify({"Error": "Animal not in the shelter"}), 404
-    if shelter.is_adopted(animal_id):
-        return jsonify({"Error": "Animal already exist"}), 400
-        
-    adopter_name = dati["adopter_name"]
+    adopter_name = dati["adopter_name"] #oppure shelter.get("adopter_name")
+    if not adopter_name:
+        return jsonify({"Error": "Missing adopter name"}), 400
+    
     shelter.set_adopted(animal_id, adopter_name)
     
     return jsonify({
         "id": animal_id,
-        "adopted": shelter.is_adopted(animal_id),
+        "adopted": True,
         "adopter_name": adopter_name
     }), 200
+
+
+if __name__ == "__main__":
+    # Avvia il server in debug sulla porta 5000
+    app.run(debug=True, host="127.0.0.1", port=5000)
 
 
         
