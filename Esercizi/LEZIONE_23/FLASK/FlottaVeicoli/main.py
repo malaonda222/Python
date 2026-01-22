@@ -2,17 +2,10 @@ from __future__ import annotations
 from flask import Flask, jsonify, url_for, request
 from abc import ABC, abstractmethod 
 
+ALLOWED_STATUSES = {"available", "rented", "maintenance", "cleaning", "retired"} 
+
 class Vehicle(ABC):
     def __init__(self, plate_id: str, model: str, driver_name: str | None, registration_year: int, status: str) -> None:
-        if status not in (
-            "available",
-            "rented",
-            "maintenanace",
-            "cleaning",
-            "retired"
-        ):
-            raise ValueError("Invalid syntax")
-    
         self.plate_id: str = plate_id
         self.model: str = model 
         self.driver_name: str = driver_name if driver_name else None 
@@ -138,7 +131,10 @@ def home():
             "vehicles_list": url_for("list_vehicles"),
             "example_vehicle_sample": url_for("vehicle_sample", plate_id=vehicle_id),
             "example_estimate": url_for("estimate_sample", plate_id=vehicle_id, factor=2.0),
-            "vehicle_adding": url_for("add_vehicle")
+            "vehicle_adding": url_for("add_vehicle"),
+            "vehicle_put": url_for("put_vehicle", plate_id=vehicle_id),
+            "vehicle_modified": url_for("patch_vehicle_status", plate_id=vehicle_id),
+            "delete_vehicle": url_for("delete_vehicle", plate_id=vehicle_id)
         }
     })
 
@@ -154,7 +150,7 @@ def vehicle_sample(plate_id):
         return jsonify({"Error": "Vehicle not found"}), 404
     return jsonify(vehicle.info()), 200
 
-@app.route('/vehicles/<string:plate_id>/prep-time/<float:factor>')
+@app.route('/vehicles/<string:plate_id>/prep-time/<float:factor>', methods=['GET'])
 def estimate_sample(plate_id, factor):
     vehicle = fm.vehicles.get(plate_id)
     if vehicle is None:
@@ -210,3 +206,72 @@ def add_vehicle():
         "info": vehicle.info()
     }), 201
 
+@app.route('vehicles/<string:plate_id>', methods=['PUT'])
+def put_vehicle(plate_id):
+    # Recupera i dati JSON dalla richiesta
+    data = request.get_json(silent=True)
+
+    # Se i dati non sono un oggetto JSON valido
+    if not isinstance(data, dict):
+        return jsonify({"error": "Request body must be JSON object"}), 400
+    
+    # Verifica se il veicolo esiste già nella flotta
+    vehicle = fm.get(plate_id)
+    if not vehicle:
+        return jsonify({"error": "Vehicle not found"}), 404
+    
+    # Recupera e valida i dati di input
+    model = data.get("model")
+    status = data.get("status")
+    driver_name = data.get("driver_name", None)
+    registration_year = data.get("registration_year")
+
+    # Validazione dello stato
+    if "status" not in data or status not in ALLOWED_STATUSES:
+        return jsonify({"error": f"Status mus be one of {sorted(ALLOWED_STATUSES)}"}), 400
+    
+    # Se il tipo di veicolo è "car"
+    if isinstance(vehicle, Car):
+        doors = data.get("doors", vehicle.doors)
+        is_cabrio = data.get("is_cabrio", vehicle.is_cabrio)
+        new_vehicle = Car(plate_id=plate_id, model=model, driver_name=driver_name, registration_year=registration_year, status=status, doors=doors, is_cabrio=is_cabrio)
+
+
+    elif isinstance(vehicle, Van):
+        max_load_kg = data.get("max_load_kg", vehicle.max_load_kg)
+        require_special_license = data.get("require_special_license", vehicle)
+        new_vehicle = Van(plate_id=plate_id, model=model, driver_name=driver_name, registration_year=registration_year, status=status, max_load_kg=max_load_kg, require_special_license=require_special_license)    
+
+    else:
+        return jsonify({"error": "Vehicle type not supported"}), 400
+    
+    fm.update(plate_id, new_vehicle)
+    return jsonify(new_vehicle.info())
+
+
+@app.route('/vechicles/<string:plate_id>/status', methods=['PATCH'])
+def patch_vehicle_status(plate_id):
+    vehicle = fm.get(plate_id)
+    if vehicle is None:
+        return jsonify({"error": "Vehicle not found"}), 404
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict) or "status" not in data:
+        return jsonify({"error": "Body must be JSON with 'status' field"}), 400
+    new_status = data['status']
+    if not isinstance(new_status, str) or new_status not in ALLOWED_STATUSES:
+        return jsonify({"error": f"Status mus be one of {sorted(ALLOWED_STATUSES)}"}), 400
+    fm.patch_status(plate_id, new_status)
+    return jsonify(fm.get(plate_id).info())
+
+
+@app.route('vehicles/<string:plate_id', method=['DELETE'])
+def delete_vehicle(plate_id):
+    deleted = fm.delete(plate_id)
+    if not deleted: 
+        return jsonify({"error": "Vehicle not found"}), 404
+    return jsonify({"deleted": True, "plate_id": plate_id}), 200 
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000, debug=False)
+
+    
