@@ -26,6 +26,13 @@ def main():
     r = requests.get(f"{BASE_URL}", headers=headers)
     print_response("GET /", r)
 
+    #senza la funzione print_response 
+    response = requests.get(
+        url="http://localhost:5000",
+        headers=headers
+    )
+    print('Risposta GET', response.json())
+
     #2) GET /devices
     r = requests.get(f"{BASE_URL}", headers=headers)
     print_response("GET /devices", r)
@@ -40,8 +47,9 @@ def main():
         "purchase_year": 2025,
         "status": "received",
         "has_protective_case": True,
-        "storage_gb": 265,
+        "storage_gb": 265
     }
+
     r = requests.post(
         f"{BASE_URL}/devices",
         headers=headers,
@@ -74,7 +82,7 @@ def main():
         "has_dedicated_gpu": True,
         "screen_size_inches": 15.6,
     }
-    r = request.put(
+    r = requests.put(
         f"{BASE_URL}/devices/{new_device_id}",
         headers=headers,
         data=json.dumps(put_body)

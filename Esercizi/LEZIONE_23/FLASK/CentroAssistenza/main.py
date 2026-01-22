@@ -212,7 +212,7 @@ def index():
         "links": {
             "list_devices": url_for("list_devices"),
             "sample_device": url_for("get_device", device_id=sample_id),
-            "sample_estimate": url_for("get_estimate", device_id=sample_id, facotr =1.5),
+            "sample_estimate": url_for("get_estimate", device_id=sample_id, factor =1.5),
             "create_device": url_for("create_device"),
             "update_device_put": url_for("update_device", device_id=sample_id),
             "patch_status": url_for("patch_device_status", device_id=sample_id),
@@ -301,7 +301,8 @@ def delete_device(device_id):
     deleted = service_center.delete(device_id)
     if not deleted:
         return jsonify({"Error": "Device not found"}), 404
-    return jsonify({"deleted": True, "id": device_id}), 200
+    return jsonify({"deleted": True, "id": device_id}), 200 
+    #oppure return "", 204 
 
 
 

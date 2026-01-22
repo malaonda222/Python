@@ -11,13 +11,16 @@ class Ride(ABC):
 
     @abstractmethod
     def category(self) -> str:
+        """Restituisce la categoria dell'attrazione."""
         pass 
 
     @abstractmethod
     def base_wait(self) -> int:
+        """Restituisce l'attesa base in minuti."""
         pass 
 
     def info(self) -> dict:
+        """Restituisce un dizionario con le informazioni principali."""
         return {
             "id": self.id,
             "name": self.name, 
@@ -26,6 +29,7 @@ class Ride(ABC):
         } 
 
     def wait_time(self, crowd_factor: float = 1.0) -> int:
+        """Restituisce l'attesa stimata in minuti."""
         base = self.base_wait()
         if base < 0:
             base = 0
@@ -126,42 +130,39 @@ def home():
     return jsonify({
         "message": "Welcome to Park API",
         "routes": {
-            "all_rides": url_for('all_rides'),
-            "ride_example": url_for('ride_details', ride_id="rc101"),
-            "wait_example": url_for('wait_details', ride_id="rc101", crowd="3.0")
+            "all_rides": url_for('get_rides'),
+            "example_ride": url_for('get_ride', ride_id="rc101"),
+            "example_wait_example": url_for('get_wait', ride_id="rc101", crowd="3.0")
         }
     })
 
 @app.route('/rides') 
-def all_rides():
-    rides_list = [
-        {
-            "id": r.id, 
-            "name": r.name, 
-            "category": r.category(),
-            "min_height_cm": r.min_height_cm
-        }
-        for r in park.list_all()
-    ]
-    return jsonify(rides_list)
+def get_rides():
+    rides_list = []
+    for r in park.list_all():
+        rides_list.append(f"{r.id} - {r.name} ({r.category()}) - min {r.min_height_cm}cm")
+    return jsonify({"rides": rides_list})
 
 @app.route('/rides/<string:ride_id>')
-def ride_details(ride_id: str):
+def get_ride(ride_id: str):
     ride = park.get(ride_id)
     if ride is None:
         return jsonify({"Error" : "Ride not found"}), 404
-    return jsonify(ride.info())
+    return jsonify({"info": ride.info()})
 
 @app.route('/rides/<string:ride_id>/wait/<float:crowd>')
-def wait_details(ride_id: str, crowd = 1.0):
+def get_wait(ride_id: str, crowd = float):
     ride = park.get(ride_id)
+    wait_min = ride.wait_time(crowd)
     if ride is None:
         return jsonify({"Error" : "Ride ID not found"}), 404
     return jsonify({
-        "id": ride_id,
-        "wait_min" : ride.wait_time(crowd)
+        "ride_id": ride,
+        "wait_min" : wait_min
     })
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="127.0.0.1", port=5000)
+
+    
