@@ -162,7 +162,7 @@ def create_book():
             )
 
         else:
-            return jsonify({"error": "invalid category. It mus be 'fiction' or 'book'"}), 400
+            return jsonify({"error": "Invalid category. It mus be 'fiction' or 'book'"}), 400
 
         library.add(book)
         return jsonify({book.info()}), 201
