@@ -59,7 +59,7 @@ def main():
 
     #4) GET /devices/<new_device_id>
     r = requests.get(f"{BASE_URL}/devices/{new_device_id}", headers=headers)
-    print_response("GET /devices/{new_device_id}", r)
+    print_response(f"GET /devices/{new_device_id}", r)
 
     #5) PATCH /devices/<new_device_id>/status
     patch_body = {
@@ -70,7 +70,7 @@ def main():
         headers=headers, 
         data=json.dumps(patch_body)
     )
-    print_response("PATCH /devices/{new_device_id}/status", r)
+    print_response(f"PATCH /devices/{new_device_id}/status", r)
 
     #6) PUT /devices/<new_device_id>
     put_body = {
@@ -87,16 +87,12 @@ def main():
         headers=headers,
         data=json.dumps(put_body)
     )
-    print_response("PUT /devices/{new_device_id}", r)
+    print_response(f"PUT /devices/{new_device_id}", r)
 
     #7) DELETE/devices/<new_device_id>
     r = requests.get(f"{BASE_URL}/devices/{new_device_id}", headers=headers)
-    print_response("DELETE /devices/{new_device_id} (after PUT)", r)
+    print_response(f"DELETE /devices/{new_device_id} (after PUT)", r)
 
     #8) GET /devices/<new_device_id>
     r = requests.get(f"{BASE_URL}7devices/{new_device_id}", headers=headers)
-    print_response("GET /devices/{new_device_id} (after DELETE)", r)
-
-
-if __name__ == "__main__":
-    main()
+    print_response(f"GET /devices/{new_device_id} (after DELETE)", r)
