@@ -318,7 +318,7 @@ def add_device():
         return jsonify({"error": "Invalid data. Missing required fields"}), 400
     
 @app.route('/devices/<string:device_id>', methods=['PUT'])
-def put_device(device_id):
+def put_device(device_id: str):
     data = request.get_json()
     if not isinstance(data, dict):
         return jsonify({"error": "Data must be a JSON object"}), 400
@@ -333,7 +333,7 @@ def put_device(device_id):
 
     try:
         if device_type == "smartphone":
-            required_fields = ['device_id', 'device_type', 'model', 'customer_name', 'purchase_year', 'status', 'has_protective_case', "storage_gb"]
+            required_fields = ['device_type', 'model', 'customer_name', 'purchase_year', 'status', 'has_protective_case', "storage_gb"]
             for field in required_fields:
                 if field not in data:
                     return jsonify({"error": "Missing required fields"}), 400
