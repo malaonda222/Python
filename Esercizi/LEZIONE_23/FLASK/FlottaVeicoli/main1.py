@@ -299,8 +299,8 @@ def add_vehicle():
     except KeyError as e:
         return jsonify({"error": f"Missing field or invalid input: {str(e)}"}), 400
 
- @add.route('/vehicles/<string:plate_id>', methods=['PUT'])
- def put_vehicle(plate_id):
+@app.route('/vehicles/<string:plate_id>', methods=['PUT'])
+def put_vehicle(plate_id):
     data = request.get_json()
     if not isinstance(data, dict):
         return jsonify({"error": "Data must be a JSON object"}), 400
@@ -372,12 +372,12 @@ def patch_vehicle(plate_id: str):
     fleet_manager.patch_status(plate_id, new_status) 
     return jsonify(fleet_manager.get(plate_id).info())
 
-@app.route('/vehicles', methods=['DELETE'])
-def delete_vehicle():
+@app.route('/vehicles/plate_id', methods=['DELETE'])
+def delete_vehicle(plate_id):
     deleted = fleet_manager.get(plate_id)
     if not deleted:
         return jsonify({"error": "Vehicle not found"}), 404
-    return jsonify("deleted": True, "id": plate_id), 200
+    return jsonify({"deleted": True, "id": plate_id}), 200
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)

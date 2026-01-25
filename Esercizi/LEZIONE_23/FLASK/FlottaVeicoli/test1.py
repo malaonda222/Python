@@ -28,13 +28,13 @@ else:
 # POST /vehicles per aggiungere un nuovo veicolo
 new_plate_id = "LO908KI"
 post_body = {
-    "type":"car"
-    "plate_id":new_vehicle,
-    "model":"Fiat 500X"
+    "type":"car",
+    "plate_id":new_plate_id,
+    "model":"Fiat 500X",
     "driver_name":"Fabio Mori",
     "registration_year":2023,
-    "status":"rented"
-    "door":5
+    "status":"rented",
+    "door":5,
     "is_cabrio":True
 }
 response = requests.post(
@@ -61,13 +61,13 @@ print("Risposta PATCH/vehicles/<plate_id>/status", response.status_code, respons
 
 # PUT /vehicles/<plate_id> per sostituire le info del veicolo
 put_body = {
-    "type":"car"
-    "plate_id": new_vehicle,
-    "model":"Fiat 600"
+    "type":"car",
+    "plate_id": new_plate_id,
+    "model":"Fiat 600",
     "driver_name":"Fabio Morandi",
     "registration_year":2023,
-    "status":"rented"
-    "door":5
+    "status":"rented",
+    "door":5,
     "is_cabrio":True
 }
 response = requests.put(
